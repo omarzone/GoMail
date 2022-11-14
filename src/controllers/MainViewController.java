@@ -87,6 +87,7 @@ public class MainViewController implements MouseListener, ActionListener {
 
         if (newMail.getBtnSend().equals(e.getSource())) {
             System.out.println("Se ha apretado el boton de enviar");
+            System.out.println(newMail.getLblUserName().getText()+ newMail.getTxtSenderName().getText() +newMail.getTxtSubject().getText() + newMail.getjTextArea1().getText() + temp.getString("password"));
 
             MailSender mailSender = new MailSender(newMail.getLblUserName().getText(), newMail.getTxtSenderName().getText(), newMail.getTxtSubject().getText(), newMail.getjTextArea1().getText(), temp.getString("password"));
             if (mailSender.envioDeCorreos()) {
@@ -98,7 +99,7 @@ public class MainViewController implements MouseListener, ActionListener {
     }
 
     public void loadMails() throws MessagingException, IOException {
-
+        System.out.println("Cargando MAILS");
         MessageFolder messageFolder = new MessageFolder();
         ArrayList<Mail> mails = messageFolder.getEmails();
         //Creamos el scroll y seteamos propiedades
@@ -127,7 +128,7 @@ public class MainViewController implements MouseListener, ActionListener {
 //        }
 //        scrollListNotes.setHorizontalScrollBarPolicy(scrollListNotes.HORIZONTAL_SCROLLBAR_NEVER);
 //        scrollListNotes.setVerticalScrollBarPolicy(scrollListNotes.VERTICAL_SCROLLBAR_NEVER);
-        gridLayoutNotes.setRows(7);
+        gridLayoutNotes.setRows(mails.size());
         gridNotePanel.setLayout(gridLayoutNotes);
 
         //Por cada item en el arraylist, agregamos un row al gridNotePanel

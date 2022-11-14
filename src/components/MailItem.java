@@ -21,7 +21,7 @@ public class MailItem extends javax.swing.JPanel {
 
         roundedBorders1 = new components.RoundedBorders();
         circleName = new components.CircleForm();
-        jLabel2 = new javax.swing.JLabel();
+        labelShortName = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         viewStatus = new components.CircleForm();
         date = new javax.swing.JLabel();
@@ -32,6 +32,7 @@ public class MailItem extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(360, 100));
         setMinimumSize(new java.awt.Dimension(360, 100));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(360, 100));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -42,9 +43,9 @@ public class MailItem extends javax.swing.JPanel {
 
         circleName.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(90, 91, 128));
-        jLabel2.setText("N");
+        labelShortName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labelShortName.setForeground(new java.awt.Color(90, 91, 128));
+        labelShortName.setText("N");
 
         javax.swing.GroupLayout circleNameLayout = new javax.swing.GroupLayout(circleName);
         circleName.setLayout(circleNameLayout);
@@ -52,14 +53,14 @@ public class MailItem extends javax.swing.JPanel {
             circleNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(circleNameLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel2)
+                .addComponent(labelShortName)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         circleNameLayout.setVerticalGroup(
             circleNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(circleNameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(labelShortName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
                 .addGap(14, 14, 14))
         );
 
@@ -152,6 +153,15 @@ public class MailItem extends javax.swing.JPanel {
         return viewStatus;
     }
 
+    public JLabel getLabelShortName() {
+        return labelShortName;
+    }
+
+    public void setLabelShortName(JLabel labelShortName) {
+        this.labelShortName = labelShortName;
+    }
+
+    
     public void setViewStatus(CircleForm viewStatus) {
         this.viewStatus = viewStatus;
     }
@@ -161,7 +171,7 @@ public class MailItem extends javax.swing.JPanel {
     private javax.swing.JLabel date;
     private javax.swing.JPanel emailDataPanel;
     private javax.swing.JLabel emailName;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel labelShortName;
     private javax.swing.JLabel message;
     private components.RoundedBorders roundedBorders1;
     private javax.swing.JLabel subject;

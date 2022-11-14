@@ -9,6 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import org.json.JSONObject;
 
 public class MailSender {
 
@@ -39,30 +40,37 @@ public class MailSender {
 
     private boolean envioDeMensajes() {
         try {
-            Properties p = new Properties();
-            p.put("mail.smtp.host", "smtp-mail.outlook.com");
-            p.setProperty("mail.smtp.starttls.enable", "true");
-            p.put("mail.smtp.ssl.trust", "smtp-mail.outlook.com");
-            p.setProperty("mail.smtp.port", "587");
-            p.setProperty("mail.smtp.user", correoDeOrigen);
-            p.setProperty("mail.smtp.auth", "true");
-            Session s = Session.getDefaultInstance(p);
-            MimeMessage mensaje = new MimeMessage(s);
-            mensaje.setFrom(new InternetAddress(correoDeOrigen));
+             JSONObject data = JsonReader.getJson("src/utils/temp.txt");
+
+        String host = data.getString("host");
+        String email = data.getString("email");
+        String password = data.getString("password");
+            
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "smtp-mail.outlook.com");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.ssl.trust", "smtp-mail.outlook.com");
+            props.setProperty("mail.smtp.port", "587");
+            props.setProperty("mail.smtp.user", email);
+            props.setProperty("mail.smtp.auth", "true");
+            Session session = Session.getInstance(props);
+            MimeMessage mensaje = new MimeMessage(session);
+            mensaje.setFrom(new InternetAddress(email));
             mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(correoDeDestino));
             mensaje.setSubject(asunto);
             mensaje.setText(mensajeDeTexto);
 
-            Transport t = s.getTransport("smtp");
-            t.connect(correoDeOrigen, contrasena16Digitos);
+            Transport t = session.getTransport("smtp");
+            t.connect(email, password);
 
-            Store store = s.getStore("imaps");
+            Store store = session.getStore("imaps");
 
 // Connect to store
-            store.connect("outlook.office365.com", "demo231120@outlook.com", "VivaPeru");
-
+//            store.connect("outlook.office365.com", "demo231120@outlook.com", "VivaPeru");
+            store.connect(host, email, password);
             t.sendMessage(mensaje, mensaje.getAllRecipients());
             t.close();
+//            session.getDebugOut();
             JOptionPane.showMessageDialog(null, "Mensaje enviado");
             return true;
         } catch (MessagingException e) {

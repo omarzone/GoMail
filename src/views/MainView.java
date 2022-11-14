@@ -88,8 +88,9 @@ public class MainView extends javax.swing.JFrame {
         jLabel6.setText("INBOX");
         mailContainer.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
+        panelMailsBox.setOpaque(false);
         panelMailsBox.setLayout(new java.awt.CardLayout());
-        mailContainer.add(panelMailsBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 400, 580));
+        mailContainer.add(panelMailsBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 380, 580));
 
         container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
 

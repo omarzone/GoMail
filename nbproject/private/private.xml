@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/NewMailComponent.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/RoundedBorders.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/CircleForm.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/views/MainView.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/TextPrompt.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/test/RunApp.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/FolderItem.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/MailContentComponent.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/components/MailItem.java</file>
-            <file>file:/E:/Archivos/Semestre%205/Construccion%20De%20Software/GoMail/GoMail/src/controllers/SMTPViewController.java</file>
+            <file>file:/D:/Repos/GoMail/src/utils/temp.txt</file>
+            <file>file:/D:/Repos/GoMail/src/controllers/MainViewController.java</file>
+            <file>file:/D:/Repos/GoMail/src/components/MailItem.java</file>
+            <file>file:/D:/Repos/GoMail/src/components/CustomScrollBar.java</file>
+            <file>file:/D:/Repos/GoMail/src/views/MainView.java</file>
+            <file>file:/D:/Repos/GoMail/src/utils/MessageFolder.java</file>
+            <file>file:/D:/Repos/GoMail/src/utils/MailSender.java</file>
         </group>
     </open-files>
 </project-private>

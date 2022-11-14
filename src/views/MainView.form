@@ -155,9 +155,12 @@
               </Constraints>
             </Component>
             <Container class="javax.swing.JPanel" name="panelMailsBox">
+              <Properties>
+                <Property name="opaque" type="boolean" value="false"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="0" y="100" width="400" height="580"/>
+                  <AbsoluteConstraints x="20" y="100" width="380" height="580"/>
                 </Constraint>
               </Constraints>
 

@@ -15,9 +15,11 @@ public class MailItemController {
     }
     
     public void setData(){
-        mailItem.getEmailName().setText(mail.getEmail());
+        String name = mail.getEmail().substring(0, mail.getEmail().indexOf('<'));
+        mailItem.getEmailName().setText(name);
         mailItem.getSubject().setText(mail.getSubject());
         mailItem.getMessage().setText(mail.getMessage());
+        mailItem.getLabelShortName().setText(String.valueOf(name.charAt(0)));
     }
     
     

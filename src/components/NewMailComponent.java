@@ -54,6 +54,7 @@ public class NewMailComponent extends javax.swing.JPanel {
         btnCancel = new javax.swing.JButton();
         btnSend = new javax.swing.JButton();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelContent.setMaximumSize(new java.awt.Dimension(500, 700));
