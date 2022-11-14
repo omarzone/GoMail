@@ -1,15 +1,17 @@
 package views;
 import components.TextPrompt;
 
-public class LoginView extends javax.swing.JFrame {
+public class LoginSMTPView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
      */
-       public LoginView() {
+       public LoginSMTPView() {
         initComponents();
-
+        
+        TextPrompt placeholderHost = new TextPrompt(" SMTP Host:",txtHost);
         TextPrompt placeHolderEmail = new TextPrompt(" Email:", txtEmail);
+        TextPrompt placeholderPort = new TextPrompt(" Port:", txtPort);
         TextPrompt placeholderPassword = new TextPrompt(" Password:", passfieldPassword);
    
     }
@@ -26,8 +28,10 @@ public class LoginView extends javax.swing.JFrame {
         labelBackground = new javax.swing.JLabel();
         panelColorBackground = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtHost = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
+        txtPort = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         passfieldPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,11 +43,11 @@ public class LoginView extends javax.swing.JFrame {
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/GoMail_LogoWhite.png"))); // NOI18N
 
-        txtEmail.setBackground(new java.awt.Color(50, 52, 103));
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+        txtHost.setBackground(new java.awt.Color(50, 52, 103));
+        txtHost.setForeground(new java.awt.Color(255, 255, 255));
+        txtHost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
+                txtHostActionPerformed(evt);
             }
         });
 
@@ -51,6 +55,22 @@ public class LoginView extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Iniciar Sesión");
+
+        txtPort.setBackground(new java.awt.Color(50, 52, 103));
+        txtPort.setForeground(new java.awt.Color(255, 255, 255));
+        txtPort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPortActionPerformed(evt);
+            }
+        });
+
+        txtEmail.setBackground(new java.awt.Color(50, 52, 103));
+        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         passfieldPassword.setBackground(new java.awt.Color(50, 52, 103));
         passfieldPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,9 +83,11 @@ public class LoginView extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtHost)
+                    .addComponent(txtPort)
                     .addComponent(txtEmail)
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(passfieldPassword, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(passfieldPassword))
                 .addGap(65, 65, 65))
         );
         panelColorBackgroundLayout.setVerticalGroup(
@@ -74,12 +96,16 @@ public class LoginView extends javax.swing.JFrame {
                 .addGap(87, 87, 87)
                 .addComponent(jLabelLogo)
                 .addGap(50, 50, 50)
+                .addComponent(txtHost, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(passfieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(90, 90, 90))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,6 +125,14 @@ public class LoginView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtHostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHostActionPerformed
+
+    private void txtPortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPortActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPortActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
@@ -121,20 +155,20 @@ public class LoginView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginView().setVisible(true);
+                new LoginSMTPView().setVisible(true);
             }
         });
     }
@@ -145,5 +179,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JPanel panelColorBackground;
     private javax.swing.JPasswordField passfieldPassword;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtHost;
+    private javax.swing.JTextField txtPort;
     // End of variables declaration//GEN-END:variables
 }
