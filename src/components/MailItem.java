@@ -133,7 +133,7 @@ public class MailItem extends javax.swing.JPanel {
     }
 
     public JLabel getSubject() {
-        return emailName;
+        return subject;
     }
 
     public void setSubject(JLabel subject) {

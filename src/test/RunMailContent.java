@@ -18,7 +18,7 @@ public class RunMailContent {
      */
     public static void main(String[] args) {
         MainView mv = new MainView();
-        MainViewController MVC = new MainViewController(mv);
+//        MainViewController MVC = new MainViewController(mv);
     }
     
 }

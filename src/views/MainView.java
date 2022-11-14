@@ -32,9 +32,8 @@ public class MainView extends javax.swing.JFrame {
         txtfSearch = new javax.swing.JTextField();
         refreshPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        panelMailsBox = new javax.swing.JPanel();
         mailContent = new javax.swing.JPanel();
         optionPanel = new javax.swing.JPanel();
         btnSettings = new javax.swing.JPanel();
@@ -85,14 +84,12 @@ public class MainView extends javax.swing.JFrame {
 
         mailContainer.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
 
-        jPanel1.setLayout(new java.awt.GridLayout(10, 1, 0, 15));
-        jScrollPane1.setViewportView(jPanel1);
-
-        mailContainer.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 380, 600));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("INBOX");
         mailContainer.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        panelMailsBox.setLayout(new java.awt.CardLayout());
+        mailContainer.add(panelMailsBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 400, 580));
 
         container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
 
@@ -242,11 +239,10 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mailContainer;
     private javax.swing.JPanel mailContent;
     private javax.swing.JPanel optionPanel;
+    private javax.swing.JPanel panelMailsBox;
     private javax.swing.JPanel refreshPanel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField txtfSearch;
@@ -340,21 +336,14 @@ public class MainView extends javax.swing.JFrame {
         this.jLabel6 = jLabel6;
     }
 
-    public JPanel getjPanel1() {
-        return jPanel1;
+    public JPanel getPanelMailsBox() {
+        return panelMailsBox;
     }
 
-    public void setjPanel1(JPanel jPanel1) {
-        this.jPanel1 = jPanel1;
+    public void setPanelMailsBox(JPanel panelMailsBox) {
+        this.panelMailsBox = panelMailsBox;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
-
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
 
     public JPanel getMailContainer() {
         return mailContainer;
