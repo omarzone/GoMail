@@ -26,100 +26,100 @@ public class MailContentComponent extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contentPanel = new components.RoundedBorders();
-        mailSenderContent = new javax.swing.JPanel();
-        profPicSender = new javax.swing.JPanel();
+        panelContent = new components.RoundedBorders();
+        panelMailSenderContent = new javax.swing.JPanel();
+        panelProfPicSender = new javax.swing.JPanel();
         txtProfilePic = new javax.swing.JLabel();
-        infoSender = new javax.swing.JPanel();
+        panelInfoSender = new javax.swing.JPanel();
         txtSenderName = new javax.swing.JLabel();
         txtSubjectMail = new javax.swing.JLabel();
         txtSenderMail = new javax.swing.JLabel();
-        mailTime = new javax.swing.JPanel();
+        panelMailTime = new javax.swing.JPanel();
         txtDate = new javax.swing.JLabel();
         txtTime = new javax.swing.JLabel();
-        mailTextContent = new javax.swing.JPanel();
+        panelMailTextContent = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        aTxtMailText = new javax.swing.JTextArea();
-        bottonContentPanel = new components.RoundedBorders();
+        txtAreaMailText = new javax.swing.JTextArea();
+        PanelbottonContent = new components.RoundedBorders();
         btnResponse = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(558, 700));
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        contentPanel.setMaximumSize(new java.awt.Dimension(500, 700));
-        contentPanel.setPreferredSize(new java.awt.Dimension(510, 584));
+        panelContent.setMaximumSize(new java.awt.Dimension(500, 700));
+        panelContent.setPreferredSize(new java.awt.Dimension(510, 584));
 
-        mailSenderContent.setBackground(new java.awt.Color(102, 0, 51));
-        mailSenderContent.setOpaque(false);
-        mailSenderContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelMailSenderContent.setBackground(new java.awt.Color(102, 0, 51));
+        panelMailSenderContent.setOpaque(false);
+        panelMailSenderContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profPicSender.setBackground(new java.awt.Color(153, 0, 51));
-        profPicSender.setOpaque(false);
-        profPicSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProfPicSender.setBackground(new java.awt.Color(153, 0, 51));
+        panelProfPicSender.setOpaque(false);
+        panelProfPicSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtProfilePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtProfilePic.setText("PP");
-        profPicSender.add(txtProfilePic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        panelProfPicSender.add(txtProfilePic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        mailSenderContent.add(profPicSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 60));
+        panelMailSenderContent.add(panelProfPicSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 60));
 
-        infoSender.setOpaque(false);
-        infoSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelInfoSender.setOpaque(false);
+        panelInfoSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtSenderName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
         txtSenderName.setText("sender name");
-        infoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelInfoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         txtSubjectMail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSubjectMail.setText("subject");
-        infoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        panelInfoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         txtSenderMail.setText("sender mail");
-        infoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        panelInfoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
-        mailSenderContent.add(infoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 160, -1));
+        panelMailSenderContent.add(panelInfoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 160, -1));
 
-        mailTime.setOpaque(false);
-        mailTime.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelMailTime.setOpaque(false);
+        panelMailTime.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtDate.setText("MM/DD");
-        mailTime.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelMailTime.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         txtTime.setText("HH:MM");
-        mailTime.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        panelMailTime.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
-        mailSenderContent.add(mailTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 50, 40));
+        panelMailSenderContent.add(panelMailTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 50, 40));
 
-        contentPanel.add(mailSenderContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 110));
+        panelContent.add(panelMailSenderContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 110));
 
-        mailTextContent.setOpaque(false);
-        mailTextContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelMailTextContent.setOpaque(false);
+        panelMailTextContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setOpaque(false);
 
-        aTxtMailText.setEditable(false);
-        aTxtMailText.setBackground(new java.awt.Color(255, 255, 255));
-        aTxtMailText.setColumns(20);
-        aTxtMailText.setForeground(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setRows(5);
-        aTxtMailText.setText("\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non \nmolestie est. Etiam suscipit in mi et interdum. Suspendisse porta libero \nsem, in porta ex fermentum nec. Aenean nec sagittis libero. Curabitur a \nmalesuada mi. Vestibulum in consectetur felis. Aliquam erat volutpat. \nEtiam condimentum nulla ex. Maecenas hendrerit dui est, in vestibulum \nligula aliquam sit amet. Ut turpis odio, dignissim et efficitur vitae, \ndictum vitae urna. Praesent accumsan massa at lorem ultrices, a aliquet \nsem hendrerit.\n\nMaecenas sodales sapien convallis sapien posuere, at efficitur ligula \nimperdiet. Donec sed mollis lacus, at tincidunt sapien. Praesent fringilla \nin est et pretium. Nam vitae lorem enim. Sed facilisis ultricies eros. \nMaecenas sagittis lectus a nisi vehicula semper. Curabitur quis efficitur \norci, id dictum felis. Nullam sed libero a tellus sagittis rutrum ut pretium \nmetus. Mauris velit risus, scelerisque quis leo ac, hendrerit sagittis nunc. \nAenean convallis arcu metus, vel maximus augue pellentesque in. Fusce \nut velit egestas sem volutpat ullamcorper. Cras laoreet neque non erat \nhendrerit fermentum. ");
-        aTxtMailText.setBorder(null);
-        aTxtMailText.setDisabledTextColor(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setEnabled(false);
-        aTxtMailText.setMargin(new java.awt.Insets(2, 20, 2, 6));
-        aTxtMailText.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(aTxtMailText);
+        txtAreaMailText.setEditable(false);
+        txtAreaMailText.setBackground(new java.awt.Color(255, 255, 255));
+        txtAreaMailText.setColumns(20);
+        txtAreaMailText.setForeground(new java.awt.Color(50, 52, 103));
+        txtAreaMailText.setRows(5);
+        txtAreaMailText.setText("\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non \nmolestie est. Etiam suscipit in mi et interdum. Suspendisse porta libero \nsem, in porta ex fermentum nec. Aenean nec sagittis libero. Curabitur a \nmalesuada mi. Vestibulum in consectetur felis. Aliquam erat volutpat. \nEtiam condimentum nulla ex. Maecenas hendrerit dui est, in vestibulum \nligula aliquam sit amet. Ut turpis odio, dignissim et efficitur vitae, \ndictum vitae urna. Praesent accumsan massa at lorem ultrices, a aliquet \nsem hendrerit.\n\nMaecenas sodales sapien convallis sapien posuere, at efficitur ligula \nimperdiet. Donec sed mollis lacus, at tincidunt sapien. Praesent fringilla \nin est et pretium. Nam vitae lorem enim. Sed facilisis ultricies eros. \nMaecenas sagittis lectus a nisi vehicula semper. Curabitur quis efficitur \norci, id dictum felis. Nullam sed libero a tellus sagittis rutrum ut pretium \nmetus. Mauris velit risus, scelerisque quis leo ac, hendrerit sagittis nunc. \nAenean convallis arcu metus, vel maximus augue pellentesque in. Fusce \nut velit egestas sem volutpat ullamcorper. Cras laoreet neque non erat \nhendrerit fermentum. ");
+        txtAreaMailText.setBorder(null);
+        txtAreaMailText.setDisabledTextColor(new java.awt.Color(50, 52, 103));
+        txtAreaMailText.setEnabled(false);
+        txtAreaMailText.setMargin(new java.awt.Insets(2, 20, 2, 6));
+        txtAreaMailText.setRequestFocusEnabled(false);
+        jScrollPane1.setViewportView(txtAreaMailText);
 
-        mailTextContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
+        panelMailTextContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
 
-        contentPanel.add(mailTextContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 430));
+        panelContent.add(panelMailTextContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 430));
 
-        add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, -1, -1));
+        add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, -1, -1));
 
-        bottonContentPanel.setPreferredSize(new java.awt.Dimension(552, 70));
+        PanelbottonContent.setPreferredSize(new java.awt.Dimension(552, 70));
 
         btnResponse.setBackground(new java.awt.Color(194, 195, 237));
         btnResponse.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -133,9 +133,9 @@ public class MailContentComponent extends javax.swing.JPanel {
                 btnResponseActionPerformed(evt);
             }
         });
-        bottonContentPanel.add(btnResponse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        PanelbottonContent.add(btnResponse, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        add(bottonContentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
+        add(PanelbottonContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResponseActionPerformed
@@ -144,16 +144,16 @@ public class MailContentComponent extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea aTxtMailText;
-    private components.RoundedBorders bottonContentPanel;
+    private components.RoundedBorders PanelbottonContent;
     private javax.swing.JButton btnResponse;
-    private components.RoundedBorders contentPanel;
-    private javax.swing.JPanel infoSender;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel mailSenderContent;
-    private javax.swing.JPanel mailTextContent;
-    private javax.swing.JPanel mailTime;
-    private javax.swing.JPanel profPicSender;
+    private components.RoundedBorders panelContent;
+    private javax.swing.JPanel panelInfoSender;
+    private javax.swing.JPanel panelMailSenderContent;
+    private javax.swing.JPanel panelMailTextContent;
+    private javax.swing.JPanel panelMailTime;
+    private javax.swing.JPanel panelProfPicSender;
+    private javax.swing.JTextArea txtAreaMailText;
     private javax.swing.JLabel txtDate;
     private javax.swing.JLabel txtProfilePic;
     private javax.swing.JLabel txtSenderMail;
