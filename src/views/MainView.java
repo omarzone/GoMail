@@ -1,13 +1,16 @@
-
 package views;
-import javax.swing.text.*;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.UIManager;
+import javax.swing.text.*;
 
 public class MainView extends javax.swing.JFrame {
 
-
     public MainView() {
+      
+
         initComponents();
+
     }
 
     /**
@@ -25,6 +28,9 @@ public class MainView extends javax.swing.JFrame {
         txtfSearch = new javax.swing.JTextField();
         refreshPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         mailContent = new javax.swing.JPanel();
         optionPanel = new javax.swing.JPanel();
         btnSettings = new javax.swing.JPanel();
@@ -74,6 +80,15 @@ public class MainView extends javax.swing.JFrame {
         searchPanel.add(refreshPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 30, 30));
 
         mailContainer.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
+
+        jPanel1.setLayout(new java.awt.GridLayout(10, 1, 0, 15));
+        jScrollPane1.setViewportView(jPanel1);
+
+        mailContainer.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 380, 600));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("INBOX");
+        mailContainer.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
 
@@ -202,12 +217,8 @@ public class MainView extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            System.out.println("SOUTAP");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -238,6 +249,9 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mailContainer;
     private javax.swing.JPanel mailContent;
     private javax.swing.JPanel optionPanel;

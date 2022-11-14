@@ -43,5 +43,30 @@
     - BottonContentPanel 552x70
 - SmtpServerCard 250x250
 
+# Variables
+
+## Label
+    - labelName
+
+## Textfield
+    - txtName
+
+## JPanel
+    - panelName
+
+## Button
+    - btnName
+
+## Password Field
+    - passfieldName
+
+## TextArea
+    - txtAreaName
+
+## JScrollPanel
+    - scrollpanelName
+
+D
+
 
 
