@@ -1,6 +1,10 @@
 package views;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.text.*;
 
@@ -93,18 +97,6 @@ public class MainView extends javax.swing.JFrame {
         container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
 
         mailContent.setBackground(new java.awt.Color(248, 248, 255));
-
-        javax.swing.GroupLayout mailContentLayout = new javax.swing.GroupLayout(mailContent);
-        mailContent.setLayout(mailContentLayout);
-        mailContentLayout.setHorizontalGroup(
-            mailContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-        mailContentLayout.setVerticalGroup(
-            mailContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
         container.add(mailContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 560, 700));
 
         optionPanel.setBackground(new java.awt.Color(56, 58, 110));
@@ -259,4 +251,160 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField txtfSearch;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getBtnCreateMail() {
+        return btnCreateMail;
+    }
+
+    public void setBtnCreateMail(JPanel btnCreateMail) {
+        this.btnCreateMail = btnCreateMail;
+    }
+
+    public JPanel getBtnFolders() {
+        return btnFolders;
+    }
+
+    public void setBtnFolders(JPanel btnFolders) {
+        this.btnFolders = btnFolders;
+    }
+
+    public JPanel getBtnSettings() {
+        return btnSettings;
+    }
+
+    public void setBtnSettings(JPanel btnSettings) {
+        this.btnSettings = btnSettings;
+    }
+
+    public JPanel getBtnUserProfile() {
+        return btnUserProfile;
+    }
+
+    public void setBtnUserProfile(JPanel btnUserProfile) {
+        this.btnUserProfile = btnUserProfile;
+    }
+
+    public JPanel getContainer() {
+        return container;
+    }
+
+    public void setContainer(JPanel container) {
+        this.container = container;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JPanel getMailContainer() {
+        return mailContainer;
+    }
+
+    public void setMailContainer(JPanel mailContainer) {
+        this.mailContainer = mailContainer;
+    }
+
+    public JPanel getMailContent() {
+        return mailContent;
+    }
+
+    public void setMailContent(JPanel mailContent) {
+        this.mailContent = mailContent;
+    }
+
+    public JPanel getOptionPanel() {
+        return optionPanel;
+    }
+
+    public void setOptionPanel(JPanel optionPanel) {
+        this.optionPanel = optionPanel;
+    }
+
+    public JPanel getRefreshPanel() {
+        return refreshPanel;
+    }
+
+    public void setRefreshPanel(JPanel refreshPanel) {
+        this.refreshPanel = refreshPanel;
+    }
+
+    public JPanel getSearchPanel() {
+        return searchPanel;
+    }
+
+    public void setSearchPanel(JPanel searchPanel) {
+        this.searchPanel = searchPanel;
+    }
+
+    public JTextField getTxtfSearch() {
+        return txtfSearch;
+    }
+
+    public void setTxtfSearch(JTextField txtfSearch) {
+        this.txtfSearch = txtfSearch;
+    }
+
+
+
+    
 }

@@ -4,6 +4,14 @@
  */
 package components;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author PC GOOSE
@@ -34,15 +42,15 @@ public class NewMailComponent extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtSubject = new javax.swing.JLabel();
-        txtContactName = new javax.swing.JLabel();
+        txtSenderName = new javax.swing.JTextField();
+        txtSubject = new javax.swing.JTextField();
+        lblUserName = new javax.swing.JLabel();
         panelMailTextContent = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        aTxtMailText = new javax.swing.JTextArea();
-        panelButtonContent = new components.RoundedBorders();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
         btnCancel = new javax.swing.JButton();
         btnSend = new javax.swing.JButton();
 
@@ -70,10 +78,6 @@ public class NewMailComponent extends javax.swing.JPanel {
         jLabel2.setText("De: ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        txtUserName.setForeground(new java.awt.Color(90, 91, 128));
-        txtUserName.setText("User name");
-        jPanel2.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 470, -1));
-
         jLabel3.setForeground(new java.awt.Color(90, 91, 128));
         jLabel3.setText("Para:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
@@ -82,13 +86,33 @@ public class NewMailComponent extends javax.swing.JPanel {
         jLabel4.setText("Asunto:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
-        txtSubject.setForeground(new java.awt.Color(90, 91, 128));
-        txtSubject.setText("Subject");
-        jPanel2.add(txtSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 430, -1));
+        txtSenderName.setBackground(new java.awt.Color(255, 255, 255));
+        txtSenderName.setForeground(new java.awt.Color(90, 91, 128));
+        txtSenderName.setBorder(null);
+        txtSenderName.setMaximumSize(new java.awt.Dimension(460, 22));
+        txtSenderName.setMinimumSize(new java.awt.Dimension(460, 22));
+        txtSenderName.setPreferredSize(new java.awt.Dimension(460, 22));
+        txtSenderName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenderNameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 440, 20));
 
-        txtContactName.setForeground(new java.awt.Color(90, 91, 128));
-        txtContactName.setText("Contact name");
-        jPanel2.add(txtContactName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 460, -1));
+        txtSubject.setBackground(new java.awt.Color(255, 255, 255));
+        txtSubject.setForeground(new java.awt.Color(90, 91, 128));
+        txtSubject.setBorder(null);
+        txtSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSubjectActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 430, 20));
+
+        lblUserName.setBackground(new java.awt.Color(255, 255, 255));
+        lblUserName.setForeground(new java.awt.Color(90, 91, 128));
+        lblUserName.setText("jLabel5");
+        jPanel2.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 470, -1));
 
         panelMailSenderContent.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 490, 100));
 
@@ -97,47 +121,46 @@ public class NewMailComponent extends javax.swing.JPanel {
         panelMailTextContent.setOpaque(false);
         panelMailTextContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setOpaque(false);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        aTxtMailText.setColumns(20);
-        aTxtMailText.setForeground(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setLineWrap(true);
-        aTxtMailText.setRows(5);
-        aTxtMailText.setText("Mensaje:");
-        aTxtMailText.setBorder(null);
-        aTxtMailText.setDisabledTextColor(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setMargin(new java.awt.Insets(2, 20, 2, 6));
-        aTxtMailText.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(aTxtMailText);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(null);
+        jScrollPane2.setViewportView(jTextArea1);
 
-        panelMailTextContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 490, 410));
+        panelMailTextContent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 490, 390));
 
         panelContent.add(panelMailTextContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 490, 400));
 
         add(panelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, -1, -1));
 
-        panelButtonContent.setPreferredSize(new java.awt.Dimension(552, 70));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(552, 70));
+        jPanel1.setMinimumSize(new java.awt.Dimension(552, 70));
+        jPanel1.setPreferredSize(new java.awt.Dimension(552, 70));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCancel.setBackground(new java.awt.Color(50, 52, 103));
+        btnCancel.setBackground(new java.awt.Color(194, 195, 237));
         btnCancel.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancel.setText("Enviar");
+        btnCancel.setForeground(new java.awt.Color(114, 115, 168));
+        btnCancel.setText("Cancelar");
         btnCancel.setAlignmentY(0.0F);
         btnCancel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancel.setMaximumSize(new java.awt.Dimension(89, 38));
+        btnCancel.setMinimumSize(new java.awt.Dimension(89, 38));
         btnCancel.setPreferredSize(new java.awt.Dimension(89, 38));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
             }
         });
-        panelButtonContent.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, -1));
 
-        btnSend.setBackground(new java.awt.Color(194, 195, 237));
+        btnSend.setBackground(new java.awt.Color(50, 52, 103));
         btnSend.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        btnSend.setForeground(new java.awt.Color(114, 115, 168));
-        btnSend.setText("Cancelar");
+        btnSend.setForeground(new java.awt.Color(255, 255, 255));
+        btnSend.setText("Enviar");
         btnSend.setAlignmentY(0.0F);
         btnSend.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnSend.setPreferredSize(new java.awt.Dimension(89, 38));
@@ -146,9 +169,9 @@ public class NewMailComponent extends javax.swing.JPanel {
                 btnSendActionPerformed(evt);
             }
         });
-        panelButtonContent.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        add(panelButtonContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 630, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -159,26 +182,89 @@ public class NewMailComponent extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSendActionPerformed
 
+    private void txtSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubjectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSubjectActionPerformed
+
+    private void txtSenderNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenderNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenderNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea aTxtMailText;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSend;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private components.RoundedBorders panelButtonContent;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblUserName;
     private components.RoundedBorders panelContent;
     private javax.swing.JPanel panelMailSenderContent;
     private javax.swing.JPanel panelMailTextContent;
-    private javax.swing.JLabel txtContactName;
-    private javax.swing.JLabel txtSubject;
-    private javax.swing.JLabel txtUserName;
+    private javax.swing.JTextField txtSenderName;
+    private javax.swing.JTextField txtSubject;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public JLabel getLblUserName() {
+        return lblUserName;
+    }
+
+    public void setLblUserName(JLabel lblUserName) {
+        this.lblUserName = lblUserName;
+    }
+
+    public JTextField getTxtSenderName() {
+        return txtSenderName;
+    }
+
+    public void setTxtSenderName(JTextField txtSenderName) {
+        this.txtSenderName = txtSenderName;
+    }
+
+    public JTextField getTxtSubject() {
+        return txtSubject;
+    }
+
+    public void setTxtSubject(JTextField txtSubject) {
+        this.txtSubject = txtSubject;
+    }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
+    }
+
+    public JButton getBtnSend() {
+        return btnSend;
+    }
+
+    public void setBtnSend(JButton btnSend) {
+        this.btnSend = btnSend;
+    }
+
+    
+    
+    
+
 }
