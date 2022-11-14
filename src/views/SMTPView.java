@@ -30,15 +30,15 @@ public class SMTPView extends javax.swing.JFrame {
 
         smtpViewContainer = new javax.swing.JPanel();
         tittleSmtp = new javax.swing.JLabel();
-        gmailButton = new components.RoundedBorders();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        outlookButton = new components.RoundedBorders();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        personalizedButton = new components.RoundedBorders();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        btnGmail = new components.RoundedBorders();
+        LabelImgGmail = new javax.swing.JLabel();
+        labelTxtGmail = new javax.swing.JLabel();
+        btnOutlook = new components.RoundedBorders();
+        labelImgOutlook = new javax.swing.JLabel();
+        labelTxtOutlook = new javax.swing.JLabel();
+        btnPersonalized = new components.RoundedBorders();
+        labelImgPersonalized = new javax.swing.JLabel();
+        labelTxtPersonalized = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -59,46 +59,46 @@ public class SMTPView extends javax.swing.JFrame {
         tittleSmtp.setText("Selecciona el proveedor SMTP");
         smtpViewContainer.add(tittleSmtp, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 59, 700, -1));
 
-        gmailButton.setBackground(new java.awt.Color(50, 52, 103));
-        gmailButton.setForeground(new java.awt.Color(50, 52, 103));
-        gmailButton.setPreferredSize(new java.awt.Dimension(200, 200));
+        btnGmail.setBackground(new java.awt.Color(50, 52, 103));
+        btnGmail.setForeground(new java.awt.Color(50, 52, 103));
+        btnGmail.setPreferredSize(new java.awt.Dimension(200, 200));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Gmail_icon.png"))); // NOI18N
-        gmailButton.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 104));
-        jLabel2.getAccessibleContext().setAccessibleName("Gmail_icon");
+        LabelImgGmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Gmail_icon.png"))); // NOI18N
+        btnGmail.add(LabelImgGmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 104));
+        LabelImgGmail.getAccessibleContext().setAccessibleName("Gmail_icon");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Gmail");
-        gmailButton.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+        labelTxtGmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelTxtGmail.setForeground(new java.awt.Color(255, 255, 255));
+        labelTxtGmail.setText("Gmail");
+        btnGmail.add(labelTxtGmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
-        smtpViewContainer.add(gmailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 242, 250, 250));
+        smtpViewContainer.add(btnGmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 242, 250, 250));
 
-        outlookButton.setBackground(new java.awt.Color(50, 52, 103));
-        outlookButton.setForeground(new java.awt.Color(50, 52, 103));
+        btnOutlook.setBackground(new java.awt.Color(50, 52, 103));
+        btnOutlook.setForeground(new java.awt.Color(50, 52, 103));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Office_Icon.png"))); // NOI18N
-        outlookButton.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        labelImgOutlook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Office_Icon.png"))); // NOI18N
+        btnOutlook.add(labelImgOutlook, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Outlook");
-        outlookButton.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        labelTxtOutlook.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelTxtOutlook.setForeground(new java.awt.Color(255, 255, 255));
+        labelTxtOutlook.setText("Outlook");
+        btnOutlook.add(labelTxtOutlook, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
-        smtpViewContainer.add(outlookButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 242, 250, 250));
+        smtpViewContainer.add(btnOutlook, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 242, 250, 250));
 
-        personalizedButton.setBackground(new java.awt.Color(50, 52, 103));
-        personalizedButton.setForeground(new java.awt.Color(50, 52, 103));
+        btnPersonalized.setBackground(new java.awt.Color(50, 52, 103));
+        btnPersonalized.setForeground(new java.awt.Color(50, 52, 103));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Personalized_icon.png"))); // NOI18N
-        personalizedButton.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        labelImgPersonalized.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Personalized_icon.png"))); // NOI18N
+        btnPersonalized.add(labelImgPersonalized, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Personalizado");
-        personalizedButton.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        labelTxtPersonalized.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        labelTxtPersonalized.setForeground(new java.awt.Color(255, 255, 255));
+        labelTxtPersonalized.setText("Personalizado");
+        btnPersonalized.add(labelTxtPersonalized, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
 
-        smtpViewContainer.add(personalizedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 242, 250, 250));
+        smtpViewContainer.add(btnPersonalized, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 242, 250, 250));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,40 +153,40 @@ public class SMTPView extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.RoundedBorders gmailButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private components.RoundedBorders outlookButton;
-    private components.RoundedBorders personalizedButton;
+    private javax.swing.JLabel LabelImgGmail;
+    private components.RoundedBorders btnGmail;
+    private components.RoundedBorders btnOutlook;
+    private components.RoundedBorders btnPersonalized;
+    private javax.swing.JLabel labelImgOutlook;
+    private javax.swing.JLabel labelImgPersonalized;
+    private javax.swing.JLabel labelTxtGmail;
+    private javax.swing.JLabel labelTxtOutlook;
+    private javax.swing.JLabel labelTxtPersonalized;
     private javax.swing.JPanel smtpViewContainer;
     private javax.swing.JLabel tittleSmtp;
     // End of variables declaration//GEN-END:variables
 
-    public RoundedBorders getGmailButton() {
-        return gmailButton;
+    public RoundedBorders getBtnGmail() {
+        return btnGmail;
     }
 
-    public void setGmailButton(RoundedBorders Gmail_button) {
-        this.gmailButton = Gmail_button;
+    public void setBtnGmail(RoundedBorders Gmail_button) {
+        this.btnGmail = Gmail_button;
     }
 
-    public RoundedBorders getOutlookButton() {
-        return outlookButton;
+    public RoundedBorders getBtnOutlook() {
+        return btnOutlook;
     }
 
-    public void setOutlookButton(RoundedBorders Outlook_button) {
-        this.outlookButton = Outlook_button;
+    public void setBtnOutlook(RoundedBorders Outlook_button) {
+        this.btnOutlook = Outlook_button;
     }
 
-    public RoundedBorders getPersonalizedButton() {
-        return personalizedButton;
+    public RoundedBorders getBtnPersonalized() {
+        return btnPersonalized;
     }
 
-    public void setPersonalizedButton(RoundedBorders Personalized_button) {
-        this.personalizedButton = Personalized_button;
+    public void setBtnPersonalized(RoundedBorders Personalized_button) {
+        this.btnPersonalized = Personalized_button;
     }
 }

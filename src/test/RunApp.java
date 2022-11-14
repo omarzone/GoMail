@@ -1,10 +1,7 @@
 package test;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-import views.LoginSMTPView;
-import views.LoginView;
 import views.MainView;
-import views.SMTPView;
 
 public class RunApp {
 
