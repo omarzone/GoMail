@@ -32,6 +32,7 @@ public class SMTPViewController implements MouseListener{
          if(this.smtpview.getBtnGmail().equals(e.getSource())){       
             LoginView LoginViewOpen = new LoginView();
             LoginViewOpen.setLocationRelativeTo(null);
+            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
             this.smtpview.setVisible(false);
             LoginViewOpen.setVisible(true);
         
@@ -39,6 +40,7 @@ public class SMTPViewController implements MouseListener{
         
          if(this.smtpview.getBtnOutlook().equals(e.getSource())){       
             LoginView LoginViewOpen = new LoginView();
+            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
             LoginViewOpen.setLocationRelativeTo(null);
             this.smtpview.setVisible(false);
             LoginViewOpen.setVisible(true);
