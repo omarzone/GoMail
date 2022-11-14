@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 
-public class CircleForm extends JPanel {
+public class CircleFormComponent extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {

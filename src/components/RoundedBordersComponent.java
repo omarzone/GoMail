@@ -5,9 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class RoundedBorders extends javax.swing.JPanel {
+public class RoundedBordersComponent extends javax.swing.JPanel {
 
-    public RoundedBorders() {
+    public RoundedBordersComponent() {
         initComponents();
     }
 

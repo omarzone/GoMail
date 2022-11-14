@@ -4,9 +4,9 @@ package components;
 import javax.swing.JLabel;
 
 
-public class MailItem extends javax.swing.JPanel {
+public class MailItemComponent extends javax.swing.JPanel {
 
-    public MailItem() {
+    public MailItemComponent() {
         initComponents();
     }
 
@@ -19,11 +19,11 @@ public class MailItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        roundedBorders1 = new components.RoundedBorders();
-        circleName = new components.CircleForm();
+        roundedBorders1 = new components.RoundedBordersComponent();
+        circleName = new components.CircleFormComponent();
         jLabel2 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
-        viewStatus = new components.CircleForm();
+        viewStatus = new components.CircleFormComponent();
         date = new javax.swing.JLabel();
         emailDataPanel = new javax.swing.JPanel();
         emailName = new javax.swing.JLabel();
@@ -148,24 +148,24 @@ public class MailItem extends javax.swing.JPanel {
         this.time = time;
     }
 
-    public CircleForm getViewStatus() {
+    public CircleFormComponent getViewStatus() {
         return viewStatus;
     }
 
-    public void setViewStatus(CircleForm viewStatus) {
+    public void setViewStatus(CircleFormComponent viewStatus) {
         this.viewStatus = viewStatus;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private components.CircleForm circleName;
+    private components.CircleFormComponent circleName;
     private javax.swing.JLabel date;
     private javax.swing.JPanel emailDataPanel;
     private javax.swing.JLabel emailName;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel message;
-    private components.RoundedBorders roundedBorders1;
+    private components.RoundedBordersComponent roundedBorders1;
     private javax.swing.JLabel subject;
     private javax.swing.JLabel time;
-    private components.CircleForm viewStatus;
+    private components.CircleFormComponent viewStatus;
     // End of variables declaration//GEN-END:variables
 }
