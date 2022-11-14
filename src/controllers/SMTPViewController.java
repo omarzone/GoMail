@@ -12,21 +12,47 @@ package controllers;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import views.LoginSMTPView;
+import views.LoginView;
 import views.SMTPView;
 public class SMTPViewController implements MouseListener{
-    private SMTPView controller;
+    private final SMTPView smtpview;
 
     public SMTPViewController(SMTPView controller) {
-        this.controller = controller;
-        this.controller.setVisible(true);
-        this.controller.setLocationRelativeTo(null);
-        this.controller.getGmailButton().addMouseListener(this);
-        this.controller.getOutlookButton().addMouseListener(this);
-        this.controller.getPersonalizedButton().addMouseListener(this);
+        this.smtpview = controller;
+        this.smtpview.setVisible(true);
+        this.smtpview.setLocationRelativeTo(null);
+        this.smtpview.getGmailButton().addMouseListener(this);
+        this.smtpview.getOutlookButton().addMouseListener(this);
+        this.smtpview.getPersonalizedButton().addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+         if(this.smtpview.getGmailButton().equals(e.getSource())){       
+            LoginView LoginViewOpen = new LoginView();
+            LoginViewOpen.setLocationRelativeTo(null);
+            this.smtpview.setVisible(false);
+            LoginViewOpen.setVisible(true);
+        
+        }
+        
+         if(this.smtpview.getOutlookButton().equals(e.getSource())){       
+            LoginView LoginViewOpen = new LoginView();
+            LoginViewOpen.setLocationRelativeTo(null);
+            this.smtpview.setVisible(false);
+            LoginViewOpen.setVisible(true);
+        
+        }
+        
+        if(this.smtpview.getPersonalizedButton().equals(e.getSource())){       
+            LoginSMTPView LoginSMTPViewOpen = new LoginSMTPView();
+            LoginSMTPViewOpen.setLocationRelativeTo(null);
+            this.smtpview.setVisible(false);
+            LoginSMTPViewOpen.setVisible(true);
+        
+        }
+        
         
     }
 
@@ -42,34 +68,32 @@ public class SMTPViewController implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(this.controller.getGmailButton().equals(e.getSource())){
-            this.controller.getGmailButton().setBackground(new Color(87,89,163));
+        if(this.smtpview.getGmailButton().equals(e.getSource())){
+            this.smtpview.getGmailButton().setBackground(new Color(87,89,163));
         }
         
-        if(this.controller.getOutlookButton().equals(e.getSource())){
-            this.controller.getOutlookButton().setBackground(new Color(87,89,163));
+        if(this.smtpview.getOutlookButton().equals(e.getSource())){
+            this.smtpview.getOutlookButton().setBackground(new Color(87,89,163));
         }
         
-        if(this.controller.getPersonalizedButton().equals(e.getSource())){
-            this.controller.getPersonalizedButton().setBackground(new Color(87,89,163));
+        if(this.smtpview.getPersonalizedButton().equals(e.getSource())){
+            this.smtpview.getPersonalizedButton().setBackground(new Color(87,89,163));
         }
         
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-         if(this.controller.getGmailButton().equals(e.getSource())){
-            this.controller.getGmailButton().setBackground(new Color(50,52,103));
+         if(this.smtpview.getGmailButton().equals(e.getSource())){
+            this.smtpview.getGmailButton().setBackground(new Color(50,52,103));
         }
          
-         if(this.controller.getOutlookButton().equals(e.getSource())){
-            this.controller.getOutlookButton().setBackground(new Color(50,52,103));
+         if(this.smtpview.getOutlookButton().equals(e.getSource())){
+            this.smtpview.getOutlookButton().setBackground(new Color(50,52,103));
         }
          
-         if(this.controller.getPersonalizedButton().equals(e.getSource())){
-            this.controller.getPersonalizedButton().setBackground(new Color(50,52,103));
+         if(this.smtpview.getPersonalizedButton().equals(e.getSource())){
+            this.smtpview.getPersonalizedButton().setBackground(new Color(50,52,103));
         }
-    }
-    
-
+    }    
 }
