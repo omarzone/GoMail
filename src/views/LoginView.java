@@ -1,5 +1,8 @@
 package views;
 import components.TextPrompt;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class LoginView extends javax.swing.JFrame {
 
@@ -138,6 +141,20 @@ public class LoginView extends javax.swing.JFrame {
             }
         });
     }
+   
+   public JButton getbtnLogin(){
+       return btnLogin;
+   }
+   
+   public JTextField gettxtEmail(){
+       return txtEmail;
+   }
+   
+   public JPasswordField getpassfieldPassword(){
+       return passfieldPassword;
+   } 
+   
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabelLogo;
