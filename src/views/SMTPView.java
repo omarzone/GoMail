@@ -46,7 +46,6 @@ public class SMTPView extends javax.swing.JFrame {
         setFocusCycleRoot(false);
         setMaximumSize(new java.awt.Dimension(1000, 700));
         setMinimumSize(new java.awt.Dimension(1000, 700));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
         setResizable(false);
 
         smtpViewContainer.setBackground(new java.awt.Color(60, 62, 117));
