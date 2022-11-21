@@ -2,6 +2,7 @@
 package components;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 public class MailItem extends javax.swing.JPanel {
@@ -165,6 +166,16 @@ public class MailItem extends javax.swing.JPanel {
     public void setViewStatus(CircleForm viewStatus) {
         this.viewStatus = viewStatus;
     }
+
+    public JPanel getEmailDataPanel() {
+        return emailDataPanel;
+    }
+
+    public RoundedBorders getRoundedBorders1() {
+        return roundedBorders1;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.CircleForm circleName;

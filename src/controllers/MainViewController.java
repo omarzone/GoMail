@@ -23,20 +23,20 @@ import views.MainView;
 
 public class MainViewController implements MouseListener, ActionListener {
 
-    private MainView vistaPrincipal;
+    static private MainView vistaPrincipal;
     private NewMailComponent newMail;
     private JSONObject temp;
 
     public MainViewController(MainView vistaPrincipal) {
-        this.vistaPrincipal = vistaPrincipal;
+        MainViewController.vistaPrincipal = vistaPrincipal;
         newMail = new NewMailComponent();
         newMail.getBtnSend().addActionListener(this);
         temp = new JSONObject();
 
-        this.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
-
-        this.vistaPrincipal.setVisible(true);
-        this.vistaPrincipal.setLocationRelativeTo(null);
+        MainViewController.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
+        
+        MainViewController.vistaPrincipal.setVisible(true);
+        MainViewController.vistaPrincipal.setLocationRelativeTo(null);
 
         try {
             loadMails();
@@ -44,7 +44,11 @@ public class MainViewController implements MouseListener, ActionListener {
             System.out.println(e.toString());
         }
     }
-
+    
+    static public MainView getMainView(){
+        return vistaPrincipal;
+    }
+    
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -52,12 +56,13 @@ public class MainViewController implements MouseListener, ActionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if (this.vistaPrincipal.getBtnCreateMail().equals(e.getSource())) {
+        if (MainViewController.vistaPrincipal.getBtnCreateMail().equals(e.getSource())) {
             temp = JsonReader.getJson("src/utils/temp.txt");
             newMail.getLblUserName().setText(temp.getString("email"));
             switchPanels(newMail);
-
+            
         }
+        
     }
 
     @Override
@@ -75,11 +80,11 @@ public class MainViewController implements MouseListener, ActionListener {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void switchPanels(JPanel panel) {
-        this.vistaPrincipal.getMailContent().removeAll();
-        this.vistaPrincipal.getMailContent().add(panel);
-        this.vistaPrincipal.getMailContent().repaint();
-        this.vistaPrincipal.getMailContent().revalidate();
+    static public void switchPanels(JPanel panel) {
+        MainViewController.vistaPrincipal.getMailContent().removeAll();
+        MainViewController.vistaPrincipal.getMailContent().add(panel);
+        MainViewController.vistaPrincipal.getMailContent().repaint();
+        MainViewController.vistaPrincipal.getMailContent().revalidate();
     }
 
     @Override

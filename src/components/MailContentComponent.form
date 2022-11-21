@@ -96,7 +96,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="90" y="10" width="160" height="-1"/>
+                  <AbsoluteConstraints x="90" y="10" width="340" height="-1"/>
                 </Constraint>
               </Constraints>
 
@@ -113,7 +113,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="0" y="0" width="340" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -126,7 +126,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="30" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="0" y="30" width="340" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -136,7 +136,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="50" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="0" y="50" width="340" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

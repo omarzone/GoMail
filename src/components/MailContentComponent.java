@@ -4,6 +4,10 @@
  */
 package components;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author PC GOOSE
@@ -69,16 +73,16 @@ public class MailContentComponent extends javax.swing.JPanel {
 
         txtSenderName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
         txtSenderName.setText("sender name");
-        infoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        infoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
 
         txtSubjectMail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSubjectMail.setText("subject");
-        infoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        infoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 340, -1));
 
         txtSenderMail.setText("sender mail");
-        infoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        infoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 340, -1));
 
-        mailSenderContent.add(infoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 160, -1));
+        mailSenderContent.add(infoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 340, -1));
 
         mailTime.setOpaque(false);
         mailTime.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -142,6 +146,38 @@ public class MailContentComponent extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResponseActionPerformed
 
+    public JButton getBtnResponse() {
+        return btnResponse;
+    }
+
+    public JTextArea getaTxtMailText() {
+        return aTxtMailText;
+    }
+
+    public JLabel getTxtDate() {
+        return txtDate;
+    }
+
+    public JLabel getTxtProfilePic() {
+        return txtProfilePic;
+    }
+
+    public JLabel getTxtSenderMail() {
+        return txtSenderMail;
+    }
+
+    public JLabel getTxtSenderName() {
+        return txtSenderName;
+    }
+
+    public JLabel getTxtSubjectMail() {
+        return txtSubjectMail;
+    }
+
+    public JLabel getTxtTime() {
+        return txtTime;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea aTxtMailText;
