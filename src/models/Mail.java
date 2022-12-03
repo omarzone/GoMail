@@ -1,11 +1,15 @@
 package models;
 
+import java.io.BufferedReader;
+import java.io.Reader;
+import java.io.StringReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.jsoup.Jsoup;
 
 public class Mail {
 
@@ -28,6 +32,7 @@ public class Mail {
         this.senderName = this.email.substring(0, this.email.indexOf('<'));
         parseEmail();
         parseReceiveDate();
+        this.shortMessage = parseShortMessage();
 
     }
 
@@ -37,7 +42,7 @@ public class Mail {
         Date d = this.receiveDate;
         DateFormat date = new SimpleDateFormat("MM/dd/yy");
         DateFormat time = new SimpleDateFormat("hh:mm a");
-        
+
         this.dateParse = date.format(d);
         this.timeParse = time.format(d);
 //        System.out.println("Date: " + date.format(d));
@@ -50,6 +55,23 @@ public class Mail {
         Matcher m = Pattern.compile("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+").matcher(this.email);
         while (m.find()) {
             this.email = m.group();
+        }
+    }
+
+    private String parseShortMessage() {
+        try{
+            Reader inputString = new StringReader(this.message);
+        BufferedReader reader = new BufferedReader(inputString);
+        StringBuilder sb = new StringBuilder();
+        BufferedReader br = new BufferedReader(reader);
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+        }
+        String textOnly = Jsoup.parse(sb.toString()).text();
+        return textOnly;
+        }catch(Exception e){
+            return "Error Parsing Html Content";
         }
     }
 

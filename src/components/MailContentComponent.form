@@ -60,33 +60,49 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="profPicSender">
+            <Container class="components.CircleForm" name="circleName">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="33" green="0" red="99" type="rgb"/>
+                  <Color blue="ff" green="cc" red="cc" type="rgb"/>
                 </Property>
-                <Property name="opaque" type="boolean" value="false"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="20" width="60" height="60"/>
+                  <AbsoluteConstraints x="10" y="20" width="60" height="60"/>
                 </Constraint>
               </Constraints>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                <Property name="useNullLayout" type="boolean" value="false"/>
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <Component id="labelShortName" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelShortName" pref="40" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="txtProfilePic">
+                <Component class="javax.swing.JLabel" name="labelShortName">
                   <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="PP"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="80" green="5b" red="5a" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="N"/>
                   </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="20" y="20" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
                 </Component>
               </SubComponents>
             </Container>
@@ -156,7 +172,7 @@
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="txtDate">
+                <Component class="javax.swing.JLabel" name="labelDate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="MM/DD"/>
                   </Properties>
@@ -166,7 +182,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtTime">
+                <Component class="javax.swing.JLabel" name="labelTime">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="HH:MM"/>
                   </Properties>

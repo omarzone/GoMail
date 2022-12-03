@@ -42,6 +42,9 @@ public class MailContentComponentController implements ActionListener {
     private void setDataToTheMailContent() {
         initJfxPanel();
         
+        mailContentView.getLabelDate().setText(mail.getDateParse());
+        mailContentView.getLabelTime().setText(mail.getTimeParse());
+        mailContentView.getLabelShortName().setText(String.valueOf(mail.getSenderName().charAt(0)));
         mailContentView.getTxtSenderName().setText(mail.getSenderName());
         mailContentView.getTxtSubjectMail().setText(mail.getSubject());
         mailContentView.getTxtSenderMail().setText(mail.getEmail());

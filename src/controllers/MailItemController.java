@@ -27,7 +27,7 @@ public class MailItemController implements MouseListener {
         mailItem.getLabelTime().setText(mail.getTimeParse());
         mailItem.getLabelSenderName().setText(mail.getSenderName());
         mailItem.getLabelSubject().setText(mail.getSubject());
-        mailItem.getLabelShortMessage().setText(mail.getMessage());
+        mailItem.getLabelShortMessage().setText(mail.getShortMessage());
         mailItem.getLabelShortName().setText(String.valueOf(mail.getSenderName().charAt(0)));
     }
 

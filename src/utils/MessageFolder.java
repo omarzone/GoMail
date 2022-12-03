@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Properties;
 import javax.mail.Folder;
 import javax.mail.Message;
@@ -25,7 +26,7 @@ public class MessageFolder {
 
     public ArrayList<Mail> getEmails() throws MessagingException, IOException {
         JSONObject data = JsonReader.getJson("src/utils/temp.txt");
-
+//        System.setProperty("mail.mime.allowencodedmessages", "true");
         host = data.getString("host");
         email = data.getString("email");
         password = data.getString("password");
@@ -35,7 +36,7 @@ public class MessageFolder {
 
         // Get session
         Session session = Session.getDefaultInstance(props, null);
-
+        
         // Get the store
         Store store = session.getStore("pop3s");
 
@@ -55,7 +56,7 @@ public class MessageFolder {
 
         for (int i = 0, n = messages.length; i < n; i++) {
             Message temp = messages[i];
-
+            
             // Display from field and subject
 //            System.out.println(i + ": " + messages[i].getFrom()[0]
 //                    + "\t" + messages[i].getSubject());
@@ -87,7 +88,15 @@ public class MessageFolder {
         folder.close(false);
         store.close();
 
-        return mails;
+        return reverseList(mails);
 
+    }
+    
+    
+    public static<T> ArrayList<T> reverseList(ArrayList<T> list){
+        ArrayList<T> reverse;
+        reverse = new ArrayList<>(list);
+        Collections.reverse(reverse);
+        return reverse;
     }
 }
