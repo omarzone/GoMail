@@ -23,11 +23,12 @@ public class MailItemController implements MouseListener {
     }
     
     public void setData(){
-        String name = mail.getEmail().substring(0, mail.getEmail().indexOf('<'));
-        mailItem.getEmailName().setText(name);
-        mailItem.getSubject().setText(mail.getSubject());
-        mailItem.getMessage().setText(mail.getMessage());
-        mailItem.getLabelShortName().setText(String.valueOf(name.charAt(0)));
+        mailItem.getLabelDate().setText(mail.getDateParse());
+        mailItem.getLabelTime().setText(mail.getTimeParse());
+        mailItem.getLabelSenderName().setText(mail.getSenderName());
+        mailItem.getLabelSubject().setText(mail.getSubject());
+        mailItem.getLabelShortMessage().setText(mail.getMessage());
+        mailItem.getLabelShortName().setText(String.valueOf(mail.getSenderName().charAt(0)));
     }
 
     @Override

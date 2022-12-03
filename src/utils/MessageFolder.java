@@ -79,7 +79,8 @@ public class MessageFolder {
                 }
             }
 //            System.out.println(" Message: " + messageContent);
-            mails.add(new Mail(temp.getFrom()[0].toString(), temp.getSubject(), messageContent));
+//            System.out.println(temp.getSentDate());
+            mails.add(new Mail(temp.getFrom()[0].toString(), temp.getSubject(), messageContent, temp.getSentDate()));
         }
 
         // Close connection 
