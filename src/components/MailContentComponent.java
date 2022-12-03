@@ -6,6 +6,7 @@ package components;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
@@ -13,14 +14,14 @@ import javax.swing.JTextArea;
  * @author PC GOOSE
  */
 public class MailContentComponent extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form mailContentView
      */
     public MailContentComponent() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +43,6 @@ public class MailContentComponent extends javax.swing.JPanel {
         txtDate = new javax.swing.JLabel();
         txtTime = new javax.swing.JLabel();
         mailTextContent = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        aTxtMailText = new javax.swing.JTextArea();
         bottonContentPanel = new components.RoundedBorders();
         btnResponse = new javax.swing.JButton();
 
@@ -98,27 +97,7 @@ public class MailContentComponent extends javax.swing.JPanel {
         contentPanel.add(mailSenderContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 110));
 
         mailTextContent.setOpaque(false);
-        mailTextContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setOpaque(false);
-
-        aTxtMailText.setEditable(false);
-        aTxtMailText.setBackground(new java.awt.Color(255, 255, 255));
-        aTxtMailText.setColumns(20);
-        aTxtMailText.setForeground(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setRows(5);
-        aTxtMailText.setText("\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non \nmolestie est. Etiam suscipit in mi et interdum. Suspendisse porta libero \nsem, in porta ex fermentum nec. Aenean nec sagittis libero. Curabitur a \nmalesuada mi. Vestibulum in consectetur felis. Aliquam erat volutpat. \nEtiam condimentum nulla ex. Maecenas hendrerit dui est, in vestibulum \nligula aliquam sit amet. Ut turpis odio, dignissim et efficitur vitae, \ndictum vitae urna. Praesent accumsan massa at lorem ultrices, a aliquet \nsem hendrerit.\n\nMaecenas sodales sapien convallis sapien posuere, at efficitur ligula \nimperdiet. Donec sed mollis lacus, at tincidunt sapien. Praesent fringilla \nin est et pretium. Nam vitae lorem enim. Sed facilisis ultricies eros. \nMaecenas sagittis lectus a nisi vehicula semper. Curabitur quis efficitur \norci, id dictum felis. Nullam sed libero a tellus sagittis rutrum ut pretium \nmetus. Mauris velit risus, scelerisque quis leo ac, hendrerit sagittis nunc. \nAenean convallis arcu metus, vel maximus augue pellentesque in. Fusce \nut velit egestas sem volutpat ullamcorper. Cras laoreet neque non erat \nhendrerit fermentum. ");
-        aTxtMailText.setBorder(null);
-        aTxtMailText.setDisabledTextColor(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setEnabled(false);
-        aTxtMailText.setMargin(new java.awt.Insets(2, 20, 2, 6));
-        aTxtMailText.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(aTxtMailText);
-
-        mailTextContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
-
+        mailTextContent.setLayout(new java.awt.BorderLayout());
         contentPanel.add(mailTextContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 430));
 
         add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, -1, -1));
@@ -150,9 +129,7 @@ public class MailContentComponent extends javax.swing.JPanel {
         return btnResponse;
     }
 
-    public JTextArea getaTxtMailText() {
-        return aTxtMailText;
-    }
+    
 
     public JLabel getTxtDate() {
         return txtDate;
@@ -163,6 +140,7 @@ public class MailContentComponent extends javax.swing.JPanel {
     }
 
     public JLabel getTxtSenderMail() {
+        
         return txtSenderMail;
     }
 
@@ -177,15 +155,17 @@ public class MailContentComponent extends javax.swing.JPanel {
     public JLabel getTxtTime() {
         return txtTime;
     }
+
+    public JPanel getMailTextContent() {
+        return mailTextContent;
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea aTxtMailText;
     private components.RoundedBorders bottonContentPanel;
     private javax.swing.JButton btnResponse;
     private components.RoundedBorders contentPanel;
     private javax.swing.JPanel infoSender;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mailSenderContent;
     private javax.swing.JPanel mailTextContent;
     private javax.swing.JPanel mailTime;
