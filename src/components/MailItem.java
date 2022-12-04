@@ -2,6 +2,7 @@
 package components;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 public class MailItem extends javax.swing.JPanel {
@@ -22,13 +23,13 @@ public class MailItem extends javax.swing.JPanel {
         roundedBorders1 = new components.RoundedBorders();
         circleName = new components.CircleForm();
         labelShortName = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
+        labelTime = new javax.swing.JLabel();
         viewStatus = new components.CircleForm();
-        date = new javax.swing.JLabel();
+        labelDate = new javax.swing.JLabel();
         emailDataPanel = new javax.swing.JPanel();
-        emailName = new javax.swing.JLabel();
-        message = new javax.swing.JLabel();
-        subject = new javax.swing.JLabel();
+        labelSenderName = new javax.swing.JLabel();
+        labelShortMessage = new javax.swing.JLabel();
+        labelSubject = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(360, 100));
         setMinimumSize(new java.awt.Dimension(360, 100));
@@ -66,8 +67,8 @@ public class MailItem extends javax.swing.JPanel {
 
         roundedBorders1.add(circleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 40));
 
-        time.setText("1:52 pm");
-        roundedBorders1.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+        labelTime.setText("1:52 pm");
+        roundedBorders1.add(labelTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
         viewStatus.setBackground(new java.awt.Color(231, 99, 39));
         viewStatus.setForeground(new java.awt.Color(231, 99, 39));
@@ -85,72 +86,60 @@ public class MailItem extends javax.swing.JPanel {
 
         roundedBorders1.add(viewStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 10, 10));
 
-        date.setText("11/13/22");
-        roundedBorders1.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+        labelDate.setText("11/13/22");
+        roundedBorders1.add(labelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
         emailDataPanel.setMaximumSize(new java.awt.Dimension(230, 80));
         emailDataPanel.setMinimumSize(new java.awt.Dimension(230, 80));
         emailDataPanel.setOpaque(false);
         emailDataPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        emailName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        emailName.setText("Name");
-        emailDataPanel.add(emailName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        labelSenderName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labelSenderName.setText("Name");
+        emailDataPanel.add(labelSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        message.setText("message");
-        emailDataPanel.add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        labelShortMessage.setText("message");
+        emailDataPanel.add(labelShortMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
 
-        subject.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        subject.setText("Subject");
-        emailDataPanel.add(subject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        labelSubject.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelSubject.setText("Subject");
+        emailDataPanel.add(labelSubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         roundedBorders1.add(emailDataPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 230, 80));
 
         add(roundedBorders1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 100));
     }// </editor-fold>//GEN-END:initComponents
 
-    public JLabel getDate() {
-        return date;
+    public JPanel getEmailDataPanel() {
+        return emailDataPanel;
     }
 
-    public void setDate(JLabel date) {
-        this.date = date;
+    public void setEmailDataPanel(JPanel emailDataPanel) {
+        this.emailDataPanel = emailDataPanel;
     }
 
-    public JLabel getMessage() {
-        return message;
+    public JLabel getLabelDate() {
+        return labelDate;
     }
 
-    public void setMessage(JLabel message) {
-        this.message = message;
+    public void setLabelDate(JLabel labelDate) {
+        this.labelDate = labelDate;
     }
 
-    public JLabel getEmailName() {
-        return emailName;
+    public JLabel getLabelSenderName() {
+        return labelSenderName;
     }
 
-    public void setName(JLabel name) {
-        this.emailName = name;
+    public void setLabelSenderName(JLabel labelSenderName) {
+        this.labelSenderName = labelSenderName;
     }
 
-    public JLabel getSubject() {
-        return subject;
+    public JLabel getLabelShortMessage() {
+        return labelShortMessage;
     }
 
-    public void setSubject(JLabel subject) {
-        this.emailName = subject;
-    }
-
-    public JLabel getTime() {
-        return time;
-    }
-
-    public void setTime(JLabel time) {
-        this.time = time;
-    }
-
-    public CircleForm getViewStatus() {
-        return viewStatus;
+    public void setLabelShortMessage(JLabel labelShortMessage) {
+        this.labelShortMessage = labelShortMessage;
     }
 
     public JLabel getLabelShortName() {
@@ -161,21 +150,34 @@ public class MailItem extends javax.swing.JPanel {
         this.labelShortName = labelShortName;
     }
 
-    
-    public void setViewStatus(CircleForm viewStatus) {
-        this.viewStatus = viewStatus;
+    public JLabel getLabelSubject() {
+        return labelSubject;
     }
+
+    public void setLabelSubject(JLabel labelSubject) {
+        this.labelSubject = labelSubject;
+    }
+
+    public JLabel getLabelTime() {
+        return labelTime;
+    }
+
+    public void setLabelTime(JLabel labelTime) {
+        this.labelTime = labelTime;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private components.CircleForm circleName;
-    private javax.swing.JLabel date;
     private javax.swing.JPanel emailDataPanel;
-    private javax.swing.JLabel emailName;
+    private javax.swing.JLabel labelDate;
+    private javax.swing.JLabel labelSenderName;
+    private javax.swing.JLabel labelShortMessage;
     private javax.swing.JLabel labelShortName;
-    private javax.swing.JLabel message;
+    private javax.swing.JLabel labelSubject;
+    private javax.swing.JLabel labelTime;
     private components.RoundedBorders roundedBorders1;
-    private javax.swing.JLabel subject;
-    private javax.swing.JLabel time;
     private components.CircleForm viewStatus;
     // End of variables declaration//GEN-END:variables
 }

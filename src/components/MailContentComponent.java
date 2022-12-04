@@ -4,19 +4,24 @@
  */
 package components;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author PC GOOSE
  */
 public class MailContentComponent extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form mailContentView
      */
     public MailContentComponent() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,18 +33,16 @@ public class MailContentComponent extends javax.swing.JPanel {
 
         contentPanel = new components.RoundedBorders();
         mailSenderContent = new javax.swing.JPanel();
-        profPicSender = new javax.swing.JPanel();
-        txtProfilePic = new javax.swing.JLabel();
+        circleName = new components.CircleForm();
+        labelShortName = new javax.swing.JLabel();
         infoSender = new javax.swing.JPanel();
         txtSenderName = new javax.swing.JLabel();
         txtSubjectMail = new javax.swing.JLabel();
         txtSenderMail = new javax.swing.JLabel();
         mailTime = new javax.swing.JPanel();
-        txtDate = new javax.swing.JLabel();
-        txtTime = new javax.swing.JLabel();
+        labelDate = new javax.swing.JLabel();
+        labelTime = new javax.swing.JLabel();
         mailTextContent = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        aTxtMailText = new javax.swing.JTextArea();
         bottonContentPanel = new components.RoundedBorders();
         btnResponse = new javax.swing.JButton();
 
@@ -54,67 +57,62 @@ public class MailContentComponent extends javax.swing.JPanel {
         mailSenderContent.setOpaque(false);
         mailSenderContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profPicSender.setBackground(new java.awt.Color(153, 0, 51));
-        profPicSender.setOpaque(false);
-        profPicSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        circleName.setBackground(new java.awt.Color(204, 204, 255));
 
-        txtProfilePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtProfilePic.setText("PP");
-        profPicSender.add(txtProfilePic, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        labelShortName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        labelShortName.setForeground(new java.awt.Color(90, 91, 128));
+        labelShortName.setText("N");
 
-        mailSenderContent.add(profPicSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 60, 60));
+        javax.swing.GroupLayout circleNameLayout = new javax.swing.GroupLayout(circleName);
+        circleName.setLayout(circleNameLayout);
+        circleNameLayout.setHorizontalGroup(
+            circleNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, circleNameLayout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(labelShortName)
+                .addGap(22, 22, 22))
+        );
+        circleNameLayout.setVerticalGroup(
+            circleNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(circleNameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelShortName, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
+        );
+
+        mailSenderContent.add(circleName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 60, 60));
 
         infoSender.setOpaque(false);
         infoSender.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtSenderName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
         txtSenderName.setText("sender name");
-        infoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        infoSender.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, -1));
 
         txtSubjectMail.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSubjectMail.setText("subject");
-        infoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        infoSender.add(txtSubjectMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 340, -1));
 
         txtSenderMail.setText("sender mail");
-        infoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        infoSender.add(txtSenderMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 340, -1));
 
-        mailSenderContent.add(infoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 160, -1));
+        mailSenderContent.add(infoSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 340, -1));
 
         mailTime.setOpaque(false);
         mailTime.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtDate.setText("MM/DD");
-        mailTime.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        labelDate.setText("MM/DD");
+        mailTime.add(labelDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        txtTime.setText("HH:MM");
-        mailTime.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        labelTime.setText("HH:MM");
+        mailTime.add(labelTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
         mailSenderContent.add(mailTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 50, 40));
 
         contentPanel.add(mailSenderContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 490, 110));
 
         mailTextContent.setOpaque(false);
-        mailTextContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setOpaque(false);
-
-        aTxtMailText.setEditable(false);
-        aTxtMailText.setBackground(new java.awt.Color(255, 255, 255));
-        aTxtMailText.setColumns(20);
-        aTxtMailText.setForeground(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setRows(5);
-        aTxtMailText.setText("\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non \nmolestie est. Etiam suscipit in mi et interdum. Suspendisse porta libero \nsem, in porta ex fermentum nec. Aenean nec sagittis libero. Curabitur a \nmalesuada mi. Vestibulum in consectetur felis. Aliquam erat volutpat. \nEtiam condimentum nulla ex. Maecenas hendrerit dui est, in vestibulum \nligula aliquam sit amet. Ut turpis odio, dignissim et efficitur vitae, \ndictum vitae urna. Praesent accumsan massa at lorem ultrices, a aliquet \nsem hendrerit.\n\nMaecenas sodales sapien convallis sapien posuere, at efficitur ligula \nimperdiet. Donec sed mollis lacus, at tincidunt sapien. Praesent fringilla \nin est et pretium. Nam vitae lorem enim. Sed facilisis ultricies eros. \nMaecenas sagittis lectus a nisi vehicula semper. Curabitur quis efficitur \norci, id dictum felis. Nullam sed libero a tellus sagittis rutrum ut pretium \nmetus. Mauris velit risus, scelerisque quis leo ac, hendrerit sagittis nunc. \nAenean convallis arcu metus, vel maximus augue pellentesque in. Fusce \nut velit egestas sem volutpat ullamcorper. Cras laoreet neque non erat \nhendrerit fermentum. ");
-        aTxtMailText.setBorder(null);
-        aTxtMailText.setDisabledTextColor(new java.awt.Color(50, 52, 103));
-        aTxtMailText.setEnabled(false);
-        aTxtMailText.setMargin(new java.awt.Insets(2, 20, 2, 6));
-        aTxtMailText.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(aTxtMailText);
-
-        mailTextContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 430));
-
+        mailTextContent.setLayout(new java.awt.BorderLayout());
         contentPanel.add(mailTextContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 490, 430));
 
         add(contentPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, -1, -1));
@@ -142,23 +140,60 @@ public class MailContentComponent extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResponseActionPerformed
 
+    public JButton getBtnResponse() {
+        return btnResponse;
+    }
+
+    
+
+  
+
+    public JLabel getTxtSenderMail() {
+        
+        return txtSenderMail;
+    }
+
+    public JLabel getTxtSenderName() {
+        return txtSenderName;
+    }
+
+    public JLabel getTxtSubjectMail() {
+        return txtSubjectMail;
+    }
+
+  
+
+    public JPanel getMailTextContent() {
+        return mailTextContent;
+    }
+
+    public JLabel getLabelDate() {
+        return labelDate;
+    }
+
+    public JLabel getLabelShortName() {
+        return labelShortName;
+    }
+
+    public JLabel getLabelTime() {
+        return labelTime;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea aTxtMailText;
     private components.RoundedBorders bottonContentPanel;
     private javax.swing.JButton btnResponse;
+    private components.CircleForm circleName;
     private components.RoundedBorders contentPanel;
     private javax.swing.JPanel infoSender;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelDate;
+    private javax.swing.JLabel labelShortName;
+    private javax.swing.JLabel labelTime;
     private javax.swing.JPanel mailSenderContent;
     private javax.swing.JPanel mailTextContent;
     private javax.swing.JPanel mailTime;
-    private javax.swing.JPanel profPicSender;
-    private javax.swing.JLabel txtDate;
-    private javax.swing.JLabel txtProfilePic;
     private javax.swing.JLabel txtSenderMail;
     private javax.swing.JLabel txtSenderName;
     private javax.swing.JLabel txtSubjectMail;
-    private javax.swing.JLabel txtTime;
     // End of variables declaration//GEN-END:variables
 }

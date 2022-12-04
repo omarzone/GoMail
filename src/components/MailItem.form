@@ -101,7 +101,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="time">
+        <Component class="javax.swing.JLabel" name="labelTime">
           <Properties>
             <Property name="text" type="java.lang.String" value="1:52 pm"/>
           </Properties>
@@ -139,7 +139,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JLabel" name="date">
+        <Component class="javax.swing.JLabel" name="labelDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="11/13/22"/>
           </Properties>
@@ -169,7 +169,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="emailName">
+            <Component class="javax.swing.JLabel" name="labelSenderName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="1"/>
@@ -182,7 +182,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="message">
+            <Component class="javax.swing.JLabel" name="labelShortMessage">
               <Properties>
                 <Property name="text" type="java.lang.String" value="message"/>
               </Properties>
@@ -192,7 +192,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="subject">
+            <Component class="javax.swing.JLabel" name="labelSubject">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="12" style="1"/>
