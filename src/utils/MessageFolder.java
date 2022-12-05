@@ -39,7 +39,7 @@ public class MessageFolder {
         Session session = Session.getDefaultInstance(props, null);
 
         // Get the store
-        Store store = session.getStore("pop3s");
+        Store store = session.getStore("imaps");
         System.out.println(store);
 
         // Connect to store
