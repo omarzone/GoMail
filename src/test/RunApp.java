@@ -13,5 +13,4 @@ public class RunApp {
         mainview.setLocationRelativeTo(null);
         MainViewController mainviewcontroller = new MainViewController(mainview);
     }
-
 }

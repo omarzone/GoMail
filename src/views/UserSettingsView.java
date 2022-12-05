@@ -1,24 +1,17 @@
 package views;
 import components.TextPrompt;
-
-import javax.swing.JLabel;
-
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-
-public class LoginSMTPView extends javax.swing.JFrame {
+public class UserSettingsView extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginView
      */
-       public LoginSMTPView() {
-        initComponents();        
-        TextPrompt placeholderHost = new TextPrompt(" SMTP Host:",txtHost);
-        TextPrompt placeHolderEmail = new TextPrompt(" Email:", txtEmail);
-        TextPrompt placeholderPort = new TextPrompt(" Port:", txtPort);
-        TextPrompt placeholderPassword = new TextPrompt(" Password:", passfieldPassword);
+       public UserSettingsView() {
+        initComponents();
+        
    
     }
 
@@ -35,20 +28,21 @@ public class LoginSMTPView extends javax.swing.JFrame {
         panelColorBackground = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         txtHost = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
+        btnDeleteData = new javax.swing.JButton();
         txtPort = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        passfieldPassword = new javax.swing.JPasswordField();
-        labelBackButton = new javax.swing.JLabel();
+        btnReturn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(60, 62, 117));
+        setResizable(false);
 
         labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/paisaje.png"))); // NOI18N
 
         panelColorBackground.setBackground(new java.awt.Color(60, 62, 117));
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/GoMail_LogoWhite.png"))); // NOI18N
+        jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 62)); // NOI18N
+        jLabelLogo.setText("Configuración");
 
         txtHost.setBackground(new java.awt.Color(50, 52, 103));
         txtHost.setForeground(new java.awt.Color(255, 255, 255));
@@ -58,10 +52,16 @@ public class LoginSMTPView extends javax.swing.JFrame {
             }
         });
 
-        btnLogin.setBackground(new java.awt.Color(87, 89, 163));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Iniciar Sesión");
+        btnDeleteData.setBackground(new java.awt.Color(188, 73, 73));
+        btnDeleteData.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDeleteData.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteData.setText("Eliminar Datos");
+        btnDeleteData.setFocusable(false);
+        btnDeleteData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDataActionPerformed(evt);
+            }
+        });
 
         txtPort.setBackground(new java.awt.Color(50, 52, 103));
         txtPort.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,36 +79,33 @@ public class LoginSMTPView extends javax.swing.JFrame {
             }
         });
 
-        passfieldPassword.setBackground(new java.awt.Color(50, 52, 103));
-        passfieldPassword.setForeground(new java.awt.Color(255, 255, 255));
-
-        labelBackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
+        btnReturn.setBackground(new java.awt.Color(87, 89, 163));
+        btnReturn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnReturn.setText("Regresar");
 
         javax.swing.GroupLayout panelColorBackgroundLayout = new javax.swing.GroupLayout(panelColorBackground);
         panelColorBackground.setLayout(panelColorBackgroundLayout);
         panelColorBackgroundLayout.setHorizontalGroup(
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColorBackgroundLayout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtHost)
-                    .addComponent(txtPort)
-                    .addComponent(txtEmail)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(passfieldPassword))
-                .addGap(65, 65, 65))
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(labelBackButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColorBackgroundLayout.createSequentialGroup()
+                        .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtHost)
+                            .addComponent(txtPort)
+                            .addComponent(txtEmail)
+                            .addComponent(btnDeleteData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColorBackgroundLayout.createSequentialGroup()
+                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         panelColorBackgroundLayout.setVerticalGroup(
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(labelBackButton)
-                .addGap(68, 68, 68)
+                .addGap(87, 87, 87)
                 .addComponent(jLabelLogo)
                 .addGap(50, 50, 50)
                 .addComponent(txtHost, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,11 +113,11 @@ public class LoginSMTPView extends javax.swing.JFrame {
                 .addComponent(txtPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passfieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnDeleteData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90))
+                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,6 +146,10 @@ public class LoginSMTPView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPortActionPerformed
 
+    private void btnDeleteDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteDataActionPerformed
+
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
@@ -170,43 +171,41 @@ public class LoginSMTPView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSettingsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSettingsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSettingsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginSMTPView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserSettingsView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginSMTPView().setVisible(true);
+                new UserSettingsView().setVisible(true);
             }
         });
     }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeleteData;
+    private javax.swing.JButton btnReturn;
+    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel labelBackground;
+    private javax.swing.JPanel panelColorBackground;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtHost;
+    private javax.swing.JTextField txtPort;
+    // End of variables declaration//GEN-END:variables
 
-
-    public JLabel getLabelBackButton() {
-        return labelBackButton;
+    public JButton getBtnDeleteData() {
+        return btnDeleteData;
     }
 
-    public JButton getBtnLogin() {
-        return btnLogin;
-    }
-
-    public void setBtnLogin(JButton btnLogin) {
-        this.btnLogin = btnLogin;
-    }
-
-    public JPasswordField getPassfieldPassword() {
-        return passfieldPassword;
-    }
-
-    public void setPassfieldPassword(JPasswordField passfieldPassword) {
-        this.passfieldPassword = passfieldPassword;
+    public void setBtnDeleteData(JButton btnDeleteData) {
+        this.btnDeleteData = btnDeleteData;
     }
 
     public JTextField getTxtEmail() {
@@ -232,21 +231,13 @@ public class LoginSMTPView extends javax.swing.JFrame {
     public void setTxtPort(JTextField txtPort) {
         this.txtPort = txtPort;
     }
-   
-   
-   
-   
-   
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel labelBackButton;
-    private javax.swing.JLabel labelBackground;
-    private javax.swing.JPanel panelColorBackground;
-    private javax.swing.JPasswordField passfieldPassword;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtHost;
-    private javax.swing.JTextField txtPort;
-    // End of variables declaration//GEN-END:variables
+    public JButton getBtnReturn() {
+        return btnReturn;
+    }
+
+    public void setBtnReturn(JButton btnReturn) {
+        this.btnReturn = btnReturn;
+    }
+    
 }

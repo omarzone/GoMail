@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controllers;
 
-/**
- *
- * @author Pablo
- */
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -16,42 +8,46 @@ import views.LoginSMTPView;
 import views.LoginView;
 import views.SMTPView;
 public class SMTPViewController implements MouseListener{
-    private final SMTPView smtpview;
+    private static SMTPView smtpview;
 
     public SMTPViewController(SMTPView controller) {
-        this.smtpview = controller;
-        this.smtpview.setVisible(true);
-        this.smtpview.setLocationRelativeTo(null);
-        this.smtpview.getBtnGmail().addMouseListener(this);
-        this.smtpview.getBtnOutlook().addMouseListener(this);
-        this.smtpview.getBtnPersonalized().addMouseListener(this);
+        SMTPViewController.smtpview = controller;
+        SMTPViewController.smtpview.setVisible(true);
+        SMTPViewController.smtpview.setLocationRelativeTo(null);
+        SMTPViewController.smtpview.getBtnGmail().addMouseListener(this);
+        SMTPViewController.smtpview.getBtnOutlook().addMouseListener(this);
+        SMTPViewController.smtpview.getBtnPersonalized().addMouseListener(this);
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-         if(this.smtpview.getBtnGmail().equals(e.getSource())){       
+
+         if(SMTPViewController.smtpview.getBtnGmail().equals(e.getSource())){       
             LoginView LoginViewOpen = new LoginView();
             LoginViewOpen.setLocationRelativeTo(null);
-            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
-            this.smtpview.setVisible(false);
+            LoginViewController loginViewController = new LoginViewController(LoginViewOpen, "gmail");
+            SMTPViewController.smtpview.setVisible(false);
             LoginViewOpen.setVisible(true);
+
         
         }
         
          if(this.smtpview.getBtnOutlook().equals(e.getSource())){       
-            LoginView LoginViewOpen = new LoginView();
-            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
-            LoginViewOpen.setLocationRelativeTo(null);
+            LoginView loginView = new LoginView();
+            LoginViewController loginViewController = new LoginViewController(loginView, "outlook");
+            loginView.setLocationRelativeTo(null);
             this.smtpview.setVisible(false);
-            LoginViewOpen.setVisible(true);
+            loginView.setVisible(true);
         
         }
         
-        if(this.smtpview.getBtnPersonalized().equals(e.getSource())){       
+
+        if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){       
             LoginSMTPView LoginSMTPViewOpen = new LoginSMTPView();
             LoginSMTPViewOpen.setLocationRelativeTo(null);
-            this.smtpview.setVisible(false);
+            SMTPViewController.smtpview.setVisible(false);
             LoginSMTPViewOpen.setVisible(true);
+
         
         }
         
@@ -70,32 +66,37 @@ public class SMTPViewController implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(this.smtpview.getBtnGmail().equals(e.getSource())){
-            this.smtpview.getBtnGmail().setBackground(new Color(87,89,163));
+        if(SMTPViewController.smtpview.getBtnGmail().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnGmail().setBackground(new Color(87,89,163));
         }
         
-        if(this.smtpview.getBtnOutlook().equals(e.getSource())){
-            this.smtpview.getBtnOutlook().setBackground(new Color(87,89,163));
+        if(SMTPViewController.smtpview.getBtnOutlook().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnOutlook().setBackground(new Color(87,89,163));
         }
         
-        if(this.smtpview.getBtnPersonalized().equals(e.getSource())){
-            this.smtpview.getBtnPersonalized().setBackground(new Color(87,89,163));
+        if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnPersonalized().setBackground(new Color(87,89,163));
         }
         
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-         if(this.smtpview.getBtnGmail().equals(e.getSource())){
-            this.smtpview.getBtnGmail().setBackground(new Color(50,52,103));
+         if(SMTPViewController.smtpview.getBtnGmail().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnGmail().setBackground(new Color(50,52,103));
         }
          
-         if(this.smtpview.getBtnOutlook().equals(e.getSource())){
-            this.smtpview.getBtnOutlook().setBackground(new Color(50,52,103));
+         if(SMTPViewController.smtpview.getBtnOutlook().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnOutlook().setBackground(new Color(50,52,103));
         }
          
-         if(this.smtpview.getBtnPersonalized().equals(e.getSource())){
-            this.smtpview.getBtnPersonalized().setBackground(new Color(50,52,103));
+         if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){
+            SMTPViewController.smtpview.getBtnPersonalized().setBackground(new Color(50,52,103));
         }
     }    
+
+    public static SMTPView getSmtpview() {
+        return smtpview;
+    }
+    
 }

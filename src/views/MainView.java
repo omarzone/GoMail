@@ -92,9 +92,12 @@ public class MainView extends javax.swing.JFrame {
         panelMailsBox.setLayout(new java.awt.CardLayout());
         mailContainer.add(panelMailsBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 380, 580));
 
-        container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
+        container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 400, 700));
 
         mailContent.setBackground(new java.awt.Color(248, 248, 255));
+        mailContent.setAlignmentX(0.0F);
+        mailContent.setAlignmentY(0.0F);
+        mailContent.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 0));
         container.add(mailContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 560, 700));
 
         optionPanel.setBackground(new java.awt.Color(56, 58, 110));
