@@ -1,5 +1,6 @@
 package views;
 import components.TextPrompt;
+import javax.swing.JLabel;
 
 public class LoginSMTPView extends javax.swing.JFrame {
 
@@ -7,8 +8,7 @@ public class LoginSMTPView extends javax.swing.JFrame {
      * Creates new form LoginView
      */
        public LoginSMTPView() {
-        initComponents();
-        
+        initComponents();        
         TextPrompt placeholderHost = new TextPrompt(" SMTP Host:",txtHost);
         TextPrompt placeHolderEmail = new TextPrompt(" Email:", txtEmail);
         TextPrompt placeholderPort = new TextPrompt(" Port:", txtPort);
@@ -33,6 +33,7 @@ public class LoginSMTPView extends javax.swing.JFrame {
         txtPort = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         passfieldPassword = new javax.swing.JPasswordField();
+        labelBackButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(60, 62, 117));
@@ -75,6 +76,8 @@ public class LoginSMTPView extends javax.swing.JFrame {
         passfieldPassword.setBackground(new java.awt.Color(50, 52, 103));
         passfieldPassword.setForeground(new java.awt.Color(255, 255, 255));
 
+        labelBackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
+
         javax.swing.GroupLayout panelColorBackgroundLayout = new javax.swing.GroupLayout(panelColorBackground);
         panelColorBackground.setLayout(panelColorBackgroundLayout);
         panelColorBackgroundLayout.setHorizontalGroup(
@@ -89,11 +92,17 @@ public class LoginSMTPView extends javax.swing.JFrame {
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passfieldPassword))
                 .addGap(65, 65, 65))
+            .addGroup(panelColorBackgroundLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelBackButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColorBackgroundLayout.setVerticalGroup(
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(26, 26, 26)
+                .addComponent(labelBackButton)
+                .addGap(68, 68, 68)
                 .addComponent(jLabelLogo)
                 .addGap(50, 50, 50)
                 .addComponent(txtHost, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,9 +181,14 @@ public class LoginSMTPView extends javax.swing.JFrame {
             }
         });
     }
+
+    public JLabel getLabelBackButton() {
+        return labelBackButton;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel labelBackButton;
     private javax.swing.JLabel labelBackground;
     private javax.swing.JPanel panelColorBackground;
     private javax.swing.JPasswordField passfieldPassword;

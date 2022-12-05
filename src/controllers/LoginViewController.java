@@ -9,16 +9,19 @@ import utils.JsonReader;
 import views.LoginView;
 import utils.JsonWriter;
 import views.MainView;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import views.SMTPView;
 
-public class LoginViewController implements ActionListener {
+public class LoginViewController implements ActionListener, MouseListener{
     
     JsonWriter jsonwriter = new JsonWriter();
-    
     private LoginView loginView;
 
     public LoginViewController(LoginView loginView) {
         this.loginView = loginView;
         loginView.getbtnLogin().addActionListener(this);
+        loginView.getLabelBackButton().addMouseListener(this);
         
         
     }
@@ -47,11 +50,43 @@ public class LoginViewController implements ActionListener {
  
                    }else {
                         JOptionPane.showMessageDialog(null, "Ingresar todos los datos");
-                   };
+                   }
                    
                }
             }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(this.loginView.getLabelBackButton().equals(e.getSource())){       
+            
+            this.loginView.setVisible(false);
+            SMTPViewController.getSmtpview().setVisible(true);
+            SMTPViewController.getSmtpview().setAlwaysOnTop(true);
     }
+
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
     
     
    

@@ -1,6 +1,7 @@
 package views;
 import components.TextPrompt;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -32,6 +33,7 @@ public class LoginView extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         passfieldPassword = new javax.swing.JPasswordField();
+        labelBackButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(60, 62, 117));
@@ -58,6 +60,8 @@ public class LoginView extends javax.swing.JFrame {
         passfieldPassword.setBackground(new java.awt.Color(50, 52, 103));
         passfieldPassword.setForeground(new java.awt.Color(255, 255, 255));
 
+        labelBackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
+
         javax.swing.GroupLayout panelColorBackgroundLayout = new javax.swing.GroupLayout(panelColorBackground);
         panelColorBackground.setLayout(panelColorBackgroundLayout);
         panelColorBackgroundLayout.setHorizontalGroup(
@@ -70,11 +74,17 @@ public class LoginView extends javax.swing.JFrame {
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passfieldPassword, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(65, 65, 65))
+            .addGroup(panelColorBackgroundLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(labelBackButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColorBackgroundLayout.setVerticalGroup(
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(26, 26, 26)
+                .addComponent(labelBackButton)
+                .addGap(45, 45, 45)
                 .addComponent(jLabelLogo)
                 .addGap(50, 50, 50)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,11 +163,16 @@ public class LoginView extends javax.swing.JFrame {
    public JPasswordField getpassfieldPassword(){
        return passfieldPassword;
    } 
-   
-   
+
+    public JLabel getLabelBackButton() {
+        return labelBackButton;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel labelBackButton;
     private javax.swing.JLabel labelBackground;
     private javax.swing.JPanel panelColorBackground;
     private javax.swing.JPasswordField passfieldPassword;
