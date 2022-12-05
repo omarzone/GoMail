@@ -1,1 +1,2 @@
-{"password":"A","port":"A","logged":false,"host":"A","email":"A"}
+{"password":"VivaTlaxcala","port":"587", "logged": false,"host":"outlook.office365.com","email":"demo041422@outlook.com"}
+

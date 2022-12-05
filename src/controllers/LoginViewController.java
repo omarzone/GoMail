@@ -9,9 +9,13 @@ import views.LoginView;
 import utils.JsonWriter;
 import utils.ValidatorSMTP;
 import views.MainView;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import views.SMTPView;
 
-public class LoginViewController implements ActionListener {
 
+public class LoginViewController implements ActionListener, MouseListener{
+    
     JsonWriter jsonwriter = new JsonWriter();
 
     private LoginView loginView;
@@ -22,6 +26,11 @@ public class LoginViewController implements ActionListener {
         this.loginView = loginView;
         setDefaultHost(provider);
         loginView.getbtnLogin().addActionListener(this);
+
+        loginView.getLabelBackButton().addMouseListener(this);
+        
+        
+
 
     }
 
@@ -40,6 +49,9 @@ public class LoginViewController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        
+                
+        
         if (loginView.getbtnLogin().equals(e.getSource())) {
             JSONObject temp = JsonReader.getJson("src/utils/temp.txt");
             ValidatorSMTP validator = new ValidatorSMTP();
@@ -71,6 +83,44 @@ public class LoginViewController implements ActionListener {
         }
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(this.loginView.getLabelBackButton().equals(e.getSource())){       
+            
+            this.loginView.setVisible(false);
+            SMTPViewController.getSmtpview().setVisible(true);
+            SMTPViewController.getSmtpview().setAlwaysOnTop(true);
+    }
+
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}
+    
+    
+   
+
+        
+
     public boolean validateFields() {
         if (loginView.gettxtEmail().getText().length() > 0 && loginView.getpassfieldPassword().getText().length() > 0) {
             return true;
@@ -78,3 +128,4 @@ public class LoginViewController implements ActionListener {
         return false;
     }
 }
+
