@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controllers;
 
-/**
- *
- * @author Pablo
- */
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -29,29 +21,33 @@ public class SMTPViewController implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
          if(SMTPViewController.smtpview.getBtnGmail().equals(e.getSource())){       
             LoginView LoginViewOpen = new LoginView();
             LoginViewOpen.setLocationRelativeTo(null);
-            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
+            LoginViewController loginViewController = new LoginViewController(LoginViewOpen, "gmail");
             SMTPViewController.smtpview.setVisible(false);
             LoginViewOpen.setVisible(true);
+
         
         }
         
          if(this.smtpview.getBtnOutlook().equals(e.getSource())){       
-            LoginView LoginViewOpen = new LoginView();
-            LoginViewController loginViewController = new LoginViewController(LoginViewOpen);
-            LoginViewOpen.setLocationRelativeTo(null);
+            LoginView loginView = new LoginView();
+            LoginViewController loginViewController = new LoginViewController(loginView, "outlook");
+            loginView.setLocationRelativeTo(null);
             this.smtpview.setVisible(false);
-            LoginViewOpen.setVisible(true);
+            loginView.setVisible(true);
         
         }
         
+
         if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){       
             LoginSMTPView LoginSMTPViewOpen = new LoginSMTPView();
             LoginSMTPViewOpen.setLocationRelativeTo(null);
             SMTPViewController.smtpview.setVisible(false);
             LoginSMTPViewOpen.setVisible(true);
+
         
         }
         

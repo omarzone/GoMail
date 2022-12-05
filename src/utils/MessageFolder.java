@@ -25,6 +25,7 @@ public class MessageFolder {
     private ArrayList<Mail> mails = new ArrayList<Mail>();
 
     public ArrayList<Mail> getEmails() throws MessagingException, IOException {
+        System.out.println("GetEmails Message Folder");
         JSONObject data = JsonReader.getJson("src/utils/temp.txt");
 //        System.setProperty("mail.mime.allowencodedmessages", "true");
         host = data.getString("host");
@@ -36,13 +37,18 @@ public class MessageFolder {
 
         // Get session
         Session session = Session.getDefaultInstance(props, null);
-        
+
         // Get the store
         Store store = session.getStore("pop3s");
+        System.out.println(store);
 
         // Connect to store
         store.connect(host, email, password);
 
+        Folder[] f = store.getDefaultFolder().list("*");
+        for (Folder fd : f) {
+            System.out.println(">> " + fd.getName());
+        }
         // Get folder
         Folder folder = store.getFolder("INBOX");
 
@@ -53,10 +59,10 @@ public class MessageFolder {
                 new InputStreamReader(System.in));
 
         Message messages[] = folder.getMessages();
-
+        System.out.println(messages.length);
         for (int i = 0, n = messages.length; i < n; i++) {
             Message temp = messages[i];
-            
+
             // Display from field and subject
 //            System.out.println(i + ": " + messages[i].getFrom()[0]
 //                    + "\t" + messages[i].getSubject());
@@ -91,9 +97,8 @@ public class MessageFolder {
         return reverseList(mails);
 
     }
-    
-    
-    public static<T> ArrayList<T> reverseList(ArrayList<T> list){
+
+    public static <T> ArrayList<T> reverseList(ArrayList<T> list) {
         ArrayList<T> reverse;
         reverse = new ArrayList<>(list);
         Collections.reverse(reverse);
