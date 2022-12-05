@@ -47,9 +47,9 @@ public class MailSender {
         String password = data.getString("password");
             
             Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp-mail.outlook.com");
+            props.put("mail.smtp.host", data.getString("host"));
             props.setProperty("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.ssl.trust", "smtp-mail.outlook.com");
+            props.put("mail.smtp.ssl.trust", data.getString("host"));
             props.setProperty("mail.smtp.port", "587");
             props.setProperty("mail.smtp.user", email);
             props.setProperty("mail.smtp.auth", "true");
