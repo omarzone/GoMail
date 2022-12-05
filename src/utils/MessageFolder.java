@@ -24,8 +24,9 @@ public class MessageFolder {
     private String password;
     private ArrayList<Mail> mails = new ArrayList<Mail>();
 
-    public ArrayList<Mail> getEmails() throws MessagingException, IOException {
-        System.out.println("GetEmails Message Folder");
+
+    public ArrayList<Mail> getEmails(String folderName) throws MessagingException, IOException {
+
         JSONObject data = JsonReader.getJson("src/utils/temp.txt");
 //        System.setProperty("mail.mime.allowencodedmessages", "true");
         host = data.getString("host");
@@ -40,7 +41,6 @@ public class MessageFolder {
 
         // Get the store
         Store store = session.getStore("imaps");
-        System.out.println(store);
 
         // Connect to store
         store.connect(host, email, password);
@@ -50,7 +50,7 @@ public class MessageFolder {
             System.out.println(">> " + fd.getName());
         }
         // Get folder
-        Folder folder = store.getFolder("INBOX");
+        Folder folder = store.getFolder(folderName);
 
         // Open read-only
         folder.open(Folder.READ_ONLY);
