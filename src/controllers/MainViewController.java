@@ -3,6 +3,7 @@ package controllers;
 import components.CustomScrollBar;
 import components.MailContentComponent;
 import components.MailItem;
+import components.FolderItemComponent;
 import components.NewMailComponent;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -34,21 +35,22 @@ public class MainViewController implements MouseListener, ActionListener {
         temp = new JSONObject();
 
         MainViewController.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
-        
+        MainViewController.vistaPrincipal.getBtnFolders().addMouseListener(this);
+
         MainViewController.vistaPrincipal.setVisible(true);
         MainViewController.vistaPrincipal.setLocationRelativeTo(null);
 
         try {
-            loadMails();
+            loadMails("INBOX");
         } catch (Exception e) {
             System.out.println(e.toString());
         }
     }
-    
-    static public MainView getMainView(){
+
+    static public MainView getMainView() {
         return vistaPrincipal;
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -60,9 +62,20 @@ public class MainViewController implements MouseListener, ActionListener {
             temp = JsonReader.getJson("src/utils/temp.txt");
             newMail.getLblUserName().setText(temp.getString("email"));
             switchPanels(newMail);
-            
+            System.out.println("presionaste el botón +");
+
         }
-        
+
+        if (MainViewController.vistaPrincipal.getBtnFolders().equals(e.getSource())) {
+            System.out.println("presionaste el botón de carpetas");
+
+            try {
+                loadFolder();
+            } catch (Exception io) {
+                System.out.println(e.toString());
+            }
+        }
+
     }
 
     @Override
@@ -92,7 +105,7 @@ public class MainViewController implements MouseListener, ActionListener {
 
         if (newMail.getBtnSend().equals(e.getSource())) {
             System.out.println("Se ha apretado el boton de enviar");
-            System.out.println(newMail.getLblUserName().getText()+ newMail.getTxtSenderName().getText() +newMail.getTxtSubject().getText() + newMail.getjTextArea1().getText() + temp.getString("password"));
+            System.out.println(newMail.getLblUserName().getText() + newMail.getTxtSenderName().getText() + newMail.getTxtSubject().getText() + newMail.getjTextArea1().getText() + temp.getString("password"));
 
             MailSender mailSender = new MailSender(newMail.getLblUserName().getText(), newMail.getTxtSenderName().getText(), newMail.getTxtSubject().getText(), newMail.getjTextArea1().getText(), temp.getString("password"));
             if (mailSender.envioDeCorreos()) {
@@ -103,10 +116,10 @@ public class MainViewController implements MouseListener, ActionListener {
         }
     }
 
-    public void loadMails() throws MessagingException, IOException {
+    public static JScrollPane loadMails(String folderName) throws MessagingException, IOException {
         System.out.println("Cargando MAILS");
         MessageFolder messageFolder = new MessageFolder();
-        ArrayList<Mail> mails = messageFolder.getEmails();
+        ArrayList<Mail> mails = messageFolder.getEmails(folderName);
         //Creamos el scroll y seteamos propiedades
         JScrollPane scrollListNotes = new JScrollPane();
         scrollListNotes.setOpaque(false);
@@ -156,6 +169,52 @@ public class MainViewController implements MouseListener, ActionListener {
         } else {
             vistaPrincipal.getPanelMailsBox().add(scrollListNotes);
         }
+        return scrollListNotes;
+    }
+
+    public void loadFolder() throws MessagingException, IOException {
+
+        FolderItemComponent spam = new FolderItemComponent();
+        FolderItemComponent inbox = new FolderItemComponent();
+        System.out.println("Cargando folders");
+
+        inbox.getTxtFolderName().setText("INBOX");
+        inbox.getTxtFolderMessagesCounter().setText("69");
+        spam.getTxtFolderName().setText("JUNK");
+        spam.getTxtFolderMessagesCounter().setText("2");
+
+        FolderItemController folderInboxController = new FolderItemController(inbox);
+        FolderItemController folderSpamController = new FolderItemController(spam);
+
+        MainViewController.vistaPrincipal.getPanelMailsBox().removeAll();
+
+        JScrollPane scrollListNotes = new JScrollPane();
+        scrollListNotes.setOpaque(false);
+        scrollListNotes.getViewport().setOpaque(false);
+        scrollListNotes.setViewportBorder(null);
+        scrollListNotes.setBorder(null);
+        scrollListNotes.setVerticalScrollBar(new CustomScrollBar());
+        scrollListNotes.getVerticalScrollBar().setUnitIncrement(16);
+
+        JPanel gridFolderPanel = new JPanel();
+        gridFolderPanel.setOpaque(false);
+        GridLayout gridLayoutNotes = new GridLayout();
+        gridLayoutNotes.setColumns(1);
+        gridLayoutNotes.setVgap(15);
+
+        gridLayoutNotes.setRows(8);
+        gridFolderPanel.setLayout(gridLayoutNotes);
+
+        gridFolderPanel.add(inbox.getComponentFolderItem());
+        gridFolderPanel.add(spam.getComponentFolderItem());
+
+        scrollListNotes.setViewportView(gridFolderPanel);
+
+        //Agregamos el scroll al ContentPanel
+        vistaPrincipal.getPanelMailsBox().add(scrollListNotes);
+        MainViewController.vistaPrincipal.getPanelMailsBox().repaint();
+        MainViewController.vistaPrincipal.getPanelMailsBox().revalidate();
+
     }
 
 }
