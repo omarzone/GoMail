@@ -4,6 +4,8 @@
  */
 package components;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author Pablo
@@ -15,6 +17,10 @@ public class FolderItem extends javax.swing.JPanel {
      */
     public FolderItem() {
         initComponents();
+    }
+
+    public void setFolder_Name(JLabel folder_Name) {
+        this.folder_Name = folder_Name;
     }
 
     /**

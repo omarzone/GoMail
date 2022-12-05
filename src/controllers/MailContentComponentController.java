@@ -17,6 +17,7 @@ import javafx.scene.web.WebView;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import models.Mail;
+import utils.HyperLinkRedirectListener;
 
 /**
  *
@@ -41,7 +42,7 @@ public class MailContentComponentController implements ActionListener {
 
     private void setDataToTheMailContent() {
         initJfxPanel();
-        
+
         mailContentView.getLabelDate().setText(mail.getDateParse());
         mailContentView.getLabelTime().setText(mail.getTimeParse());
         mailContentView.getLabelShortName().setText(String.valueOf(mail.getSenderName().charAt(0)));
@@ -73,6 +74,7 @@ public class MailContentComponentController implements ActionListener {
         WebEngine engine = myWebView.getEngine();
         engine.loadContent(mail.getMessage());
         engine.setUserAgent("Mozilla/5.0 (Linux; U; Android 2.2.1; en-us; Nexus One Build/FRG83) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+        myWebView.getEngine().getLoadWorker().stateProperty().addListener(new HyperLinkRedirectListener(myWebView));
         VBox root = new VBox();
         root.getChildren().addAll(myWebView);
         Scene scene = new Scene(root);
