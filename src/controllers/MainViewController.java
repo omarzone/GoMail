@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,8 +30,12 @@ public class MainViewController implements MouseListener{
         temp = new JSONObject();
 
         MainViewController.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
+
+        MainViewController.vistaPrincipal.getReloadMailLabel().addMouseListener(this);
+
         MainViewController.vistaPrincipal.getBtnSettings().addMouseListener(this);
         
+
         MainViewController.vistaPrincipal.setVisible(true);
         MainViewController.vistaPrincipal.setLocationRelativeTo(null);
 
@@ -39,11 +45,11 @@ public class MainViewController implements MouseListener{
             System.out.println(e.toString());
         }
     }
-    
-    static public MainView getMainView(){
+
+    static public MainView getMainView() {
         return vistaPrincipal;
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -55,13 +61,30 @@ public class MainViewController implements MouseListener{
             temp = JsonReader.getJson("src/utils/temp.txt");
             NewMailComponent newMail = new NewMailComponent();
             newMail.getLblUserName().setText(temp.getString("email"));
+
             NewMailComponentController newMainControllerComponent = new NewMailComponentController(newMail);
         }
         if(MainViewController.vistaPrincipal.getBtnSettings().equals(e.getSource())){
             UserSettingsView userSettingsView = new UserSettingsView();
             UserSettingsViewController userSettingsViewController = new UserSettingsViewController(userSettingsView);
+
         }
-        
+        if (MainViewController.vistaPrincipal.getReloadMailLabel().equals(e.getSource())) {
+            try {
+
+                //loadMails();
+                //MainViewController.vistaPrincipal.getPanelMailsBox().updateUI();
+                MainViewController.vistaPrincipal.getPanelMailsBox().removeAll();
+                MainViewController.vistaPrincipal.getPanelMailsBox().add(loadMails());
+                MainViewController.vistaPrincipal.getPanelMailsBox().repaint();
+                MainViewController.vistaPrincipal.getPanelMailsBox().revalidate();
+
+            } catch (Exception i) {
+                System.out.println(i.toString());
+            }
+
+        }
+
     }
 
     @Override
@@ -88,7 +111,7 @@ public class MainViewController implements MouseListener{
 
 
 
-    public void loadMails() throws MessagingException, IOException {
+    public JScrollPane loadMails() throws MessagingException, IOException {
         System.out.println("Cargando MAILS");
         MessageFolder messageFolder = new MessageFolder();
         ArrayList<Mail> mails = messageFolder.getEmails();
@@ -125,7 +148,7 @@ public class MainViewController implements MouseListener{
         for (Mail mail : mails) {
             System.out.println(mail.getEmail() + " " + mail.getSubject());
             MailItem mailItem = new MailItem();
-//            completeNoteItemView.setBackground(cntrlMain.getThemeApp().getNOTE_BG());
+//          completeNoteItemView.setBackground(cntrlMain.getThemeApp().getNOTE_BG());
             MailItemController mailitemController = new MailItemController(mailItem, mail);
             gridNotePanel.add(mailItem);
 
@@ -141,6 +164,7 @@ public class MainViewController implements MouseListener{
         } else {
             vistaPrincipal.getPanelMailsBox().add(scrollListNotes);
         }
+        return scrollListNotes;
     }
 
 }

@@ -1,4 +1,3 @@
-
 package controllers;
 
 import components.MailContentComponent;
@@ -11,18 +10,18 @@ import javax.swing.JPanel;
 import models.Mail;
 
 public class MailItemController implements MouseListener {
-    
+
     MailItem mailItem;
     Mail mail;
-    
-    public MailItemController(MailItem mailItem, Mail mail){
+
+    public MailItemController(MailItem mailItem, Mail mail) {
         this.mailItem = mailItem;
         this.mail = mail;
         setData();
         mailItem.addMouseListener(this);
     }
-    
-    public void setData(){
+
+    public void setData() {
         mailItem.getLabelDate().setText(mail.getDateParse());
         mailItem.getLabelTime().setText(mail.getTimeParse());
         mailItem.getLabelSenderName().setText(mail.getSenderName());
@@ -33,15 +32,15 @@ public class MailItemController implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        if(mailItem.equals(e.getSource())){
+        if (mailItem.equals(e.getSource())) {
             MailContentComponent mailContentView = new MailContentComponent();
-            MailContentComponentController mailContentCntrl= new MailContentComponentController(mailContentView, mail);
+            MailContentComponentController mailContentCntrl = new MailContentComponentController(mailContentView, mail);
             MainViewController.switchPanels(MailContentComponentController.getMailContentView());
         }
     }
@@ -61,6 +60,4 @@ public class MailItemController implements MouseListener {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-   
-    
 }

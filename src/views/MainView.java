@@ -31,7 +31,7 @@ public class MainView extends javax.swing.JFrame {
         searchPanel = new javax.swing.JPanel();
         txtfSearch = new javax.swing.JTextField();
         refreshPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        reloadMailLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         panelMailsBox = new javax.swing.JPanel();
         mailContent = new javax.swing.JPanel();
@@ -75,10 +75,10 @@ public class MainView extends javax.swing.JFrame {
         refreshPanel.setOpaque(false);
         refreshPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8-actualizar.png"))); // NOI18N
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        refreshPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        reloadMailLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reloadMailLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8-actualizar.png"))); // NOI18N
+        reloadMailLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        refreshPanel.add(reloadMailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         searchPanel.add(refreshPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 30, 30));
 
@@ -231,6 +231,10 @@ public class MainView extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getReloadMailLabel() {
+        return reloadMailLabel;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnCreateMail;
     private javax.swing.JPanel btnFolders;
@@ -241,13 +245,13 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel mailContainer;
     private javax.swing.JPanel mailContent;
     private javax.swing.JPanel optionPanel;
     private javax.swing.JPanel panelMailsBox;
     private javax.swing.JPanel refreshPanel;
+    private javax.swing.JLabel reloadMailLabel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField txtfSearch;
     // End of variables declaration//GEN-END:variables
@@ -325,11 +329,11 @@ public class MainView extends javax.swing.JFrame {
     }
 
     public JLabel getjLabel5() {
-        return jLabel5;
+        return reloadMailLabel;
     }
 
     public void setjLabel5(JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
+        this.reloadMailLabel = jLabel5;
     }
 
     public JLabel getjLabel6() {
