@@ -1,5 +1,8 @@
 package views;
 import components.TextPrompt;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class LoginSMTPView extends javax.swing.JFrame {
 
@@ -172,6 +175,51 @@ public class LoginSMTPView extends javax.swing.JFrame {
             }
         });
     }
+
+    public JButton getBtnLogin() {
+        return btnLogin;
+    }
+
+    public void setBtnLogin(JButton btnLogin) {
+        this.btnLogin = btnLogin;
+    }
+
+    public JPasswordField getPassfieldPassword() {
+        return passfieldPassword;
+    }
+
+    public void setPassfieldPassword(JPasswordField passfieldPassword) {
+        this.passfieldPassword = passfieldPassword;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public void setTxtEmail(JTextField txtEmail) {
+        this.txtEmail = txtEmail;
+    }
+
+    public JTextField getTxtHost() {
+        return txtHost;
+    }
+
+    public void setTxtHost(JTextField txtHost) {
+        this.txtHost = txtHost;
+    }
+
+    public JTextField getTxtPort() {
+        return txtPort;
+    }
+
+    public void setTxtPort(JTextField txtPort) {
+        this.txtPort = txtPort;
+    }
+   
+   
+   
+   
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabelLogo;

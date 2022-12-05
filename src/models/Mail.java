@@ -29,48 +29,65 @@ public class Mail {
         this.message = message;
         this.receiveDate = receiveDate;
 
-        this.senderName = this.email.substring(0, this.email.indexOf('<'));
+        parseSenderName();
         parseEmail();
         parseReceiveDate();
         this.shortMessage = parseShortMessage();
 
     }
 
+    private void parseSenderName() {
+        try {
+            this.senderName = this.email.substring(0, this.email.indexOf('<'));
+        } catch (Exception e) {
+            this.senderName = "Desconocido";
+            System.out.println(e.getMessage() + " Setting sender name error");
+        }
+    }
+
     private void parseReceiveDate() {
 
-        DateFormat f = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
-        Date d = this.receiveDate;
-        DateFormat date = new SimpleDateFormat("MM/dd/yy");
-        DateFormat time = new SimpleDateFormat("hh:mm a");
+        try {
+            DateFormat f = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
+            Date d = this.receiveDate;
+            DateFormat date = new SimpleDateFormat("MM/dd/yy");
+            DateFormat time = new SimpleDateFormat("hh:mm a");
 
-        this.dateParse = date.format(d);
-        this.timeParse = time.format(d);
+            this.dateParse = date.format(d);
+            this.timeParse = time.format(d);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 //        System.out.println("Date: " + date.format(d));
 //        System.out.println("Time: " + time.format(d));
 
     }
 
     private void parseEmail() {
-
-        Matcher m = Pattern.compile("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+").matcher(this.email);
-        while (m.find()) {
-            this.email = m.group();
+        try {
+            Matcher m = Pattern.compile("[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+").matcher(this.email);
+            while (m.find()) {
+                this.email = m.group();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
     }
 
     private String parseShortMessage() {
-        try{
+        try {
             Reader inputString = new StringReader(this.message);
-        BufferedReader reader = new BufferedReader(inputString);
-        StringBuilder sb = new StringBuilder();
-        BufferedReader br = new BufferedReader(reader);
-        String line;
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        String textOnly = Jsoup.parse(sb.toString()).text();
-        return textOnly;
-        }catch(Exception e){
+            BufferedReader reader = new BufferedReader(inputString);
+            StringBuilder sb = new StringBuilder();
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            String textOnly = Jsoup.parse(sb.toString()).text();
+            return textOnly;
+        } catch (Exception e) {
             return "Error Parsing Html Content";
         }
     }
