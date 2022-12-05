@@ -1,12 +1,9 @@
 package controllers;
 
 import components.CustomScrollBar;
-import components.MailContentComponent;
 import components.MailItem;
 import components.NewMailComponent;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
@@ -17,23 +14,21 @@ import javax.swing.JScrollPane;
 import models.Mail;
 import org.json.JSONObject;
 import utils.JsonReader;
-import utils.MailSender;
 import utils.MessageFolder;
 import views.MainView;
+import views.UserSettingsView;
 
-public class MainViewController implements MouseListener, ActionListener {
+public class MainViewController implements MouseListener{
 
     static private MainView vistaPrincipal;
-    private NewMailComponent newMail;
     private JSONObject temp;
 
     public MainViewController(MainView vistaPrincipal) {
         MainViewController.vistaPrincipal = vistaPrincipal;
-        newMail = new NewMailComponent();
-        newMail.getBtnSend().addActionListener(this);
         temp = new JSONObject();
 
         MainViewController.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
+        MainViewController.vistaPrincipal.getBtnSettings().addMouseListener(this);
         
         MainViewController.vistaPrincipal.setVisible(true);
         MainViewController.vistaPrincipal.setLocationRelativeTo(null);
@@ -58,9 +53,13 @@ public class MainViewController implements MouseListener, ActionListener {
     public void mousePressed(MouseEvent e) {
         if (MainViewController.vistaPrincipal.getBtnCreateMail().equals(e.getSource())) {
             temp = JsonReader.getJson("src/utils/temp.txt");
+            NewMailComponent newMail = new NewMailComponent();
             newMail.getLblUserName().setText(temp.getString("email"));
-            switchPanels(newMail);
-            
+            NewMailComponentController newMainControllerComponent = new NewMailComponentController(newMail);
+        }
+        if(MainViewController.vistaPrincipal.getBtnSettings().equals(e.getSource())){
+            UserSettingsView userSettingsView = new UserSettingsView();
+            UserSettingsViewController userSettingsViewController = new UserSettingsViewController(userSettingsView);
         }
         
     }
@@ -87,21 +86,7 @@ public class MainViewController implements MouseListener, ActionListener {
         MainViewController.vistaPrincipal.getMailContent().revalidate();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-        if (newMail.getBtnSend().equals(e.getSource())) {
-            System.out.println("Se ha apretado el boton de enviar");
-            System.out.println(newMail.getLblUserName().getText()+ newMail.getTxtSenderName().getText() +newMail.getTxtSubject().getText() + newMail.getjTextArea1().getText() + temp.getString("password"));
-
-            MailSender mailSender = new MailSender(newMail.getLblUserName().getText(), newMail.getTxtSenderName().getText(), newMail.getTxtSubject().getText(), newMail.getjTextArea1().getText(), temp.getString("password"));
-            if (mailSender.envioDeCorreos()) {
-                this.vistaPrincipal.getMailContent().removeAll();
-                this.vistaPrincipal.getMailContent().repaint();
-                this.vistaPrincipal.getMailContent().revalidate();
-            }
-        }
-    }
 
     public void loadMails() throws MessagingException, IOException {
         System.out.println("Cargando MAILS");

@@ -5,6 +5,7 @@
 package controllers;
 
 import components.MailContentComponent;
+import components.NewMailComponent;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -83,7 +84,13 @@ public class MailContentComponentController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         if (MailContentComponentController.mailContentView.getBtnResponse().equals(e.getSource())) {
-            JOptionPane.showMessageDialog(null, "mensaje pa responder");
+            System.out.println("Hola");
+            NewMailComponent newMailComponent = new NewMailComponent();
+            newMailComponent.getTxtSenderName().enable(false);
+            newMailComponent.getTxtSubject().setText("RE: " + mail.getSubject());
+            newMailComponent.getTxtSubject().enable(false);
+
+            NewMailComponentController newMailComponentController = new NewMailComponentController(newMailComponent, mail.getEmail());
         }
 
     }
