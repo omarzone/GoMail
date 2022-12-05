@@ -90,6 +90,7 @@ public class NewMailComponent extends javax.swing.JPanel {
         txtSenderName.setBackground(new java.awt.Color(255, 255, 255));
         txtSenderName.setForeground(new java.awt.Color(90, 91, 128));
         txtSenderName.setBorder(null);
+        txtSenderName.setDisabledTextColor(new java.awt.Color(90, 91, 128));
         txtSenderName.setMaximumSize(new java.awt.Dimension(460, 22));
         txtSenderName.setMinimumSize(new java.awt.Dimension(460, 22));
         txtSenderName.setPreferredSize(new java.awt.Dimension(460, 22));
@@ -103,6 +104,7 @@ public class NewMailComponent extends javax.swing.JPanel {
         txtSubject.setBackground(new java.awt.Color(255, 255, 255));
         txtSubject.setForeground(new java.awt.Color(90, 91, 128));
         txtSubject.setBorder(null);
+        txtSubject.setDisabledTextColor(new java.awt.Color(90, 91, 128));
         txtSubject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSubjectActionPerformed(evt);
