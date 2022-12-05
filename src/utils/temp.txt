@@ -1,1 +1,1 @@
-{"password":"kbujmplwvyrmstsu","port":"587","logged":true,"host":"smtp.gmail.com","email":"juanosvaldo010101@gmail.com"}
+{"password":"VivaTlaxcala","port":"587","logged":true,"host":"smtp-mail.outlook.com","email":"demo041422@outlook.com"}
