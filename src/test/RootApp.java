@@ -24,9 +24,9 @@ public class RootApp {
     public static void main(String args[]) {
      FlatDarkLaf.setup();
      JSONObject temp = JsonReader.getJson("src/utils/temp.txt");
-        boolean loggued = temp.getBoolean("loggued");
+        boolean logged = temp.getBoolean("logged");
         
-        if(loggued== false){
+        if(logged== false){
             SMTPView smtpView = new SMTPView();
             smtpView.setVisible(true);
             smtpView.setLocationRelativeTo(null);
