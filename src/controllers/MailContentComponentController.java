@@ -70,7 +70,7 @@ public class MailContentComponentController implements ActionListener {
         panel.setScene(scene);
     }
 
-    private Scene createScene() {
+    public Scene createScene() {
         WebView myWebView = new WebView();
         WebEngine engine = myWebView.getEngine();
         engine.loadContent(mail.getMessage());
