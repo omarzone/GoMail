@@ -19,7 +19,7 @@ public class JsonReader {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        
+
         return obj;
     }
 }

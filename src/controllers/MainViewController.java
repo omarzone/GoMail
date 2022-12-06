@@ -120,6 +120,8 @@ public class MainViewController implements MouseListener{
         MainViewController.vistaPrincipal.getMailContent().add(panel);
         MainViewController.vistaPrincipal.getMailContent().repaint();
         MainViewController.vistaPrincipal.getMailContent().revalidate();
+        
+        System.out.println("paneles cambiados correctamente");
     }
 
   
