@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 public class JsonWriter {
 
-    public void Write(String path2, JSONObject content) {
+    public void write(String path2, JSONObject content) {
 
         String path = path2;
 

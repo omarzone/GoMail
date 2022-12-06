@@ -15,7 +15,8 @@ import views.MainView;
 public class LoginSMTPViewController implements ActionListener, MouseListener {
 
     JsonWriter jsonwriter = new JsonWriter();
-
+    private static final String FILE_LOCATION = "src/utils/temp.txt";
+    private static final String KEY = "logged";
     private LoginSMTPView loginSMTPView;
 
     public LoginSMTPViewController(LoginSMTPView loginSMTPView) {
@@ -29,7 +30,7 @@ public class LoginSMTPViewController implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
 
         if (loginSMTPView.getBtnLogin().equals(e.getSource())) {
-            JSONObject temp = JsonReader.getJson("src/utils/temp.txt");
+            JSONObject temp = JsonReader.getJson(FILE_LOCATION);
             ValidatorSMTP validator = new ValidatorSMTP();
             if (validateFields()) {
 
@@ -37,12 +38,12 @@ public class LoginSMTPViewController implements ActionListener, MouseListener {
                 temp.put("email", loginSMTPView.getTxtEmail().getText());
                 temp.put("port", loginSMTPView.getTxtPort().getText());
                 temp.put("host", loginSMTPView.getTxtHost().getText());
-                jsonwriter.Write("src/utils/temp.txt", temp);
+                jsonwriter.write(FILE_LOCATION, temp);
                 
 
                 if (validator.validate()) {
                     JOptionPane.showMessageDialog(null, "Login Correcto");
-                    temp.put("logged", true);
+                    temp.put(KEY, true);
                     MainView mainview = new MainView();
                     mainview.setVisible(true);
                     mainview.setLocationRelativeTo(null);
@@ -50,16 +51,16 @@ public class LoginSMTPViewController implements ActionListener, MouseListener {
                     loginSMTPView.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Incorrecto");
-                    temp.put("logged", false);
+                    temp.put(KEY, false);
                 }
                 
             } else {
 
                 JOptionPane.showMessageDialog(null, "Porfavor complete todos los campos");
-                temp.put("logged", false);
+                temp.put(KEY, false);
 
             };
-            jsonwriter.Write("src/utils/temp.txt", temp);
+            jsonwriter.write(FILE_LOCATION, temp);
 
         }
     }

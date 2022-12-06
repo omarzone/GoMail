@@ -23,11 +23,11 @@ public class SMTPViewController implements MouseListener{
     public void mouseClicked(MouseEvent e) {
 
          if(SMTPViewController.smtpview.getBtnGmail().equals(e.getSource())){       
-            LoginView LoginViewOpen = new LoginView();
-            LoginViewOpen.setLocationRelativeTo(null);
-            LoginViewController loginViewController = new LoginViewController(LoginViewOpen, "gmail");
+            LoginView loginViewOpen = new LoginView();
+            loginViewOpen.setLocationRelativeTo(null);
+            LoginViewController loginViewController = new LoginViewController(loginViewOpen, "gmail");
             SMTPViewController.smtpview.setVisible(false);
-            LoginViewOpen.setVisible(true);
+            loginViewOpen.setVisible(true);
 
         
         }
@@ -43,11 +43,11 @@ public class SMTPViewController implements MouseListener{
         
 
         if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){       
-            LoginSMTPView LoginSMTPViewOpen = new LoginSMTPView();
-            LoginSMTPViewController loginSMTPViewController = new LoginSMTPViewController(LoginSMTPViewOpen);
-            LoginSMTPViewOpen.setLocationRelativeTo(null);
+            LoginSMTPView loginSMTPViewOpen = new LoginSMTPView();
+            LoginSMTPViewController loginSMTPViewController = new LoginSMTPViewController(loginSMTPViewOpen);
+            loginSMTPViewOpen.setLocationRelativeTo(null);
             SMTPViewController.smtpview.setVisible(false);
-            LoginSMTPViewOpen.setVisible(true);
+            loginSMTPViewOpen.setVisible(true);
 
         
         }
@@ -57,12 +57,12 @@ public class SMTPViewController implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override

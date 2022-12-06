@@ -13,22 +13,22 @@ import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeBodyPart;
+import javax.mail.search.SearchTerm;
 import models.Mail;
 import org.json.JSONObject;
 import utils.JsonReader;
 
 public class MessageFolder {
 
-    private String host;
-    private String email;
-    private String password;
-    private ArrayList<Mail> mails = new ArrayList<Mail>();
-
+    private static String host;
+    private static String email;
+    private static String password;
+    private static ArrayList<Mail> mails;
+    private static Folder folder;
 
     public ArrayList<Mail> getEmails(String folderName) throws MessagingException, IOException {
-
+        MessageFolder.mails = new ArrayList<Mail>();
         JSONObject data = JsonReader.getJson("src/utils/temp.txt");
-//        System.setProperty("mail.mime.allowencodedmessages", "true");
         host = data.getString("host");
         email = data.getString("email");
         password = data.getString("password");
@@ -50,7 +50,7 @@ public class MessageFolder {
             System.out.println(">> " + fd.getName());
         }
         // Get folder
-        Folder folder = store.getFolder(folderName);
+        MessageFolder.folder = store.getFolder(folderName);
 
         // Open read-only
         folder.open(Folder.READ_ONLY);
@@ -62,12 +62,6 @@ public class MessageFolder {
         System.out.println(messages.length);
         for (int i = 0, n = messages.length; i < n; i++) {
             Message temp = messages[i];
-
-            // Display from field and subject
-//            System.out.println(i + ": " + messages[i].getFrom()[0]
-//                    + "\t" + messages[i].getSubject());
-//
-//            System.out.println(messages[i].getContent());
             String contentType = messages[i].getContentType();
             String messageContent = "";
 
@@ -85,18 +79,75 @@ public class MessageFolder {
                     messageContent = content.toString();
                 }
             }
-//            System.out.println(" Message: " + messageContent);
-//            System.out.println(temp.getSentDate());
             mails.add(new Mail(temp.getFrom()[0].toString(), temp.getSubject(), messageContent, temp.getSentDate()));
         }
-
-        // Close connection 
-        folder.close(false);
-        store.close();
-
         return reverseList(mails);
 
     }
+
+    public static ArrayList<Mail> getMails() {
+        return mails;
+    }
+
+    public static void setMails(ArrayList<Mail> mails) {
+        MessageFolder.mails = mails;
+    }
+    
+    public static ArrayList<Mail> searchMails(String term) throws MessagingException, IOException {
+        MessageFolder.mails = new ArrayList<Mail>();
+        JSONObject data = JsonReader.getJson("src/utils/temp.txt");
+        host = data.getString("host");
+        email = data.getString("email");
+        password = data.getString("password");
+
+        // Create empty properties
+        Properties props = new Properties();
+
+        // Get session
+        Session session = Session.getDefaultInstance(props, null);
+
+        // Get the store
+        Store store = session.getStore("imaps");
+
+        // Connect to store
+        store.connect(host, email, password);
+        SearchTerm searchTerm = new SearchTerm() {
+            @Override
+            public boolean match(Message msg) {
+                try {
+                    return msg.getSubject().contains(term);
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+        };
+        Message[] messages = MessageFolder.folder.search(searchTerm);
+        System.out.println(messages.length);
+        for (int i = 0, n = messages.length; i < n; i++) {
+            Message temp = messages[i];
+            String contentType = messages[i].getContentType();
+            String messageContent = "";
+
+            if (contentType.contains("multipart")) {
+                Multipart multiPart = (Multipart) messages[i].getContent();
+                int numberOfParts = multiPart.getCount();
+                for (int partCount = 0; partCount < numberOfParts; partCount++) {
+                    MimeBodyPart part = (MimeBodyPart) multiPart.getBodyPart(partCount);
+                    messageContent = part.getContent().toString();
+                }
+            } else if (contentType.contains("text/plain")
+                    || contentType.contains("text/html")) {
+                Object content = messages[i].getContent();
+                if (content != null) {
+                    messageContent = content.toString();
+                }
+            }
+            mails.add(new Mail(temp.getFrom()[0].toString(), temp.getSubject(), messageContent, temp.getSentDate()));
+        }
+        return reverseList(mails);
+    }
+
 
     public static <T> ArrayList<T> reverseList(ArrayList<T> list) {
         ArrayList<T> reverse;

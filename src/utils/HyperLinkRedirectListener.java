@@ -62,7 +62,7 @@ public class HyperLinkRedirectListener implements ChangeListener<Worker.State>, 
             openLinkInSystemBrowser(href);
         } else
         {
-            // LOGGER.warn("OS does not support desktop operations like browsing. Cannot open link '{}'.", href);
+            
         }
 
         event.preventDefault();
@@ -70,7 +70,7 @@ public class HyperLinkRedirectListener implements ChangeListener<Worker.State>, 
 
     private void openLinkInSystemBrowser(String url)
     {
-        // LOGGER.debug("Opening link '{}' in default system browser.", url);
+        
 
         try
         {
@@ -78,7 +78,7 @@ public class HyperLinkRedirectListener implements ChangeListener<Worker.State>, 
             Desktop.getDesktop().browse(uri);
         } catch (Throwable e)
         {
-            // LOGGER.error("Error on opening link '{}' in system browser.", url);
+            System.out.println(e);
         }
     }
 }

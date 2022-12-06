@@ -29,10 +29,11 @@ public class MainView extends javax.swing.JFrame {
         container = new javax.swing.JPanel();
         mailContainer = new javax.swing.JPanel();
         searchPanel = new javax.swing.JPanel();
+        searchButton = new javax.swing.JLabel();
         txtfSearch = new javax.swing.JTextField();
         refreshPanel = new javax.swing.JPanel();
         reloadMailLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        folderNameTitle = new javax.swing.JLabel();
         panelMailsBox = new javax.swing.JPanel();
         mailContent = new javax.swing.JPanel();
         optionPanel = new javax.swing.JPanel();
@@ -61,6 +62,9 @@ public class MainView extends javax.swing.JFrame {
         searchPanel.setOpaque(false);
         searchPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/searchIcon.png"))); // NOI18N
+        searchPanel.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 30, 40));
+
         txtfSearch.setBackground(new java.awt.Color(57, 59, 114));
         txtfSearch.setForeground(new java.awt.Color(255, 255, 255));
         txtfSearch.setToolTipText("Buscar");
@@ -70,7 +74,7 @@ public class MainView extends javax.swing.JFrame {
                 txtfSearchActionPerformed(evt);
             }
         });
-        searchPanel.add(txtfSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 40));
+        searchPanel.add(txtfSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 40));
 
         refreshPanel.setOpaque(false);
         refreshPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,9 +88,9 @@ public class MainView extends javax.swing.JFrame {
 
         mailContainer.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("INBOX");
-        mailContainer.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        folderNameTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        folderNameTitle.setText("INBOX");
+        mailContainer.add(folderNameTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         panelMailsBox.setOpaque(false);
         panelMailsBox.setLayout(new java.awt.CardLayout());
@@ -235,23 +239,28 @@ public class MainView extends javax.swing.JFrame {
         return reloadMailLabel;
     }
 
+    public JLabel getSearchButton() {
+        return searchButton;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnCreateMail;
     private javax.swing.JPanel btnFolders;
     private javax.swing.JPanel btnSettings;
     private javax.swing.JPanel btnUserProfile;
     private javax.swing.JPanel container;
+    private javax.swing.JLabel folderNameTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel mailContainer;
     private javax.swing.JPanel mailContent;
     private javax.swing.JPanel optionPanel;
     private javax.swing.JPanel panelMailsBox;
     private javax.swing.JPanel refreshPanel;
     private javax.swing.JLabel reloadMailLabel;
+    private javax.swing.JLabel searchButton;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField txtfSearch;
     // End of variables declaration//GEN-END:variables
@@ -259,7 +268,11 @@ public class MainView extends javax.swing.JFrame {
     public JPanel getBtnCreateMail() {
         return btnCreateMail;
     }
-
+    
+    public JLabel getSearchBtn(){
+        return this.searchButton;
+    }
+    
     public void setBtnCreateMail(JPanel btnCreateMail) {
         this.btnCreateMail = btnCreateMail;
     }
@@ -336,12 +349,12 @@ public class MainView extends javax.swing.JFrame {
         this.reloadMailLabel = jLabel5;
     }
 
-    public JLabel getjLabel6() {
-        return jLabel6;
+    public JLabel getFolderNameTitle() {
+        return folderNameTitle;
     }
 
     public void setjLabel6(JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
+        this.folderNameTitle = jLabel6;
     }
 
     public JPanel getPanelMailsBox() {

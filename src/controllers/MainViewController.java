@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
 import models.Mail;
 import org.json.JSONObject;
 import utils.JsonReader;
@@ -24,42 +25,47 @@ import views.UserSettingsView;
 
 public class MainViewController implements MouseListener{
 
-    static private MainView vistaPrincipal;
+    private static MainView vistaPrincipal;
     private JSONObject temp;
     private BackgroundImageComponent backgroundimage = new BackgroundImageComponent();
+    private static Boolean searchCondition = false;
+    private static final String INBOX_FOLDER = "INBOX";
     public MainViewController(MainView vistaPrincipal) {
         MainViewController.vistaPrincipal = vistaPrincipal;
         temp = new JSONObject();
 
         MainViewController.vistaPrincipal.getBtnCreateMail().addMouseListener(this);
-
-
         MainViewController.vistaPrincipal.getReloadMailLabel().addMouseListener(this);
-
         MainViewController.vistaPrincipal.getBtnSettings().addMouseListener(this);
-        
-
         MainViewController.vistaPrincipal.getBtnFolders().addMouseListener(this);
+        MainViewController.vistaPrincipal.getSearchBtn().addMouseListener(this);
 
 
         MainViewController.vistaPrincipal.setVisible(true);
         MainViewController.vistaPrincipal.setLocationRelativeTo(null);
         switchPanels(backgroundimage);
-        
-        try {
-            loadMails("INBOX");
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    MainViewController.vistaPrincipal.getPanelMailsBox().removeAll();
+                    MainViewController.vistaPrincipal.getPanelMailsBox().add(loadMails(INBOX_FOLDER));
+                    MainViewController.vistaPrincipal.getPanelMailsBox().repaint();
+                    MainViewController.vistaPrincipal.getPanelMailsBox().revalidate();
+                } catch (Exception e) {
+                    System.out.println(e.toString());
+                }
+            }
+        });
+
     }
 
-    static public MainView getMainView() {
+    public static MainView getMainView() {
         return vistaPrincipal;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -77,11 +83,8 @@ public class MainViewController implements MouseListener{
         }
         if (MainViewController.vistaPrincipal.getReloadMailLabel().equals(e.getSource())) {
             try {
-
-                //loadMails();
-                //MainViewController.vistaPrincipal.getPanelMailsBox().updateUI();
                 MainViewController.vistaPrincipal.getPanelMailsBox().removeAll();
-                MainViewController.vistaPrincipal.getPanelMailsBox().add(loadMails("INBOX"));
+                MainViewController.vistaPrincipal.getPanelMailsBox().add(loadMails(INBOX_FOLDER));
                 MainViewController.vistaPrincipal.getPanelMailsBox().repaint();
                 MainViewController.vistaPrincipal.getPanelMailsBox().revalidate();
             } catch (Exception i) {
@@ -94,8 +97,21 @@ public class MainViewController implements MouseListener{
 
             try {
                 loadFolder();
+                vistaPrincipal.getFolderNameTitle().setText("carpetas");
             } catch (Exception io) {
                 System.out.println(e.toString());
+            }
+
+        }
+        if (MainViewController.vistaPrincipal.getSearchBtn().equals(e.getSource())) {
+            MainViewController.searchCondition = true;
+            try {
+                MainViewController.vistaPrincipal.getPanelMailsBox().removeAll();
+                MainViewController.vistaPrincipal.getPanelMailsBox().add(loadMails(INBOX_FOLDER));
+                MainViewController.vistaPrincipal.getPanelMailsBox().repaint();
+                MainViewController.vistaPrincipal.getPanelMailsBox().revalidate();
+            } catch (Exception i) {
+                System.out.println(i.toString());
             }
 
         }
@@ -117,7 +133,7 @@ public class MainViewController implements MouseListener{
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    static public void switchPanels(JPanel panel) {
+    public static void switchPanels(JPanel panel) {
         MainViewController.vistaPrincipal.getMailContent().removeAll();
         MainViewController.vistaPrincipal.getMailContent().add(panel);
         MainViewController.vistaPrincipal.getMailContent().repaint();
@@ -128,10 +144,17 @@ public class MainViewController implements MouseListener{
 
   
     public static JScrollPane loadMails(String folderName) throws MessagingException, IOException {
-
+        ArrayList<Mail> mails = new ArrayList<>();
         System.out.println("Cargando MAILS");
         MessageFolder messageFolder = new MessageFolder();
-        ArrayList<Mail> mails = messageFolder.getEmails(folderName);
+        if(MainViewController.searchCondition){
+            System.out.println("buscador activado");
+            
+            mails = messageFolder.searchMails(MainViewController.vistaPrincipal.getTxtfSearch().getText());
+        } else {
+            mails = messageFolder.getEmails(folderName);
+        }
+        
         //Creamos el scroll y seteamos propiedades
         JScrollPane scrollListNotes = new JScrollPane();
         scrollListNotes.setOpaque(false);
@@ -148,16 +171,7 @@ public class MainViewController implements MouseListener{
         gridLayoutNotes.setColumns(1);
         gridLayoutNotes.setVgap(15);
 
-        //Validacion para evitar que las notas se hagan muy grandes cuando son pocas
-//        if (mails.size() < 5) {
-//            gridLayoutNotes.setRows(mails.size() + 3);
-//            scrollListNotes.setHorizontalScrollBarPolicy(scrollListNotes.HORIZONTAL_SCROLLBAR_NEVER);
-//            scrollListNotes.setVerticalScrollBarPolicy(scrollListNotes.VERTICAL_SCROLLBAR_NEVER);
-//        } else {
-//            gridLayoutNotes.setRows(mails.size());
-//        }
-//        scrollListNotes.setHorizontalScrollBarPolicy(scrollListNotes.HORIZONTAL_SCROLLBAR_NEVER);
-//        scrollListNotes.setVerticalScrollBarPolicy(scrollListNotes.VERTICAL_SCROLLBAR_NEVER);
+        
         gridLayoutNotes.setRows(mails.size());
         gridNotePanel.setLayout(gridLayoutNotes);
 
@@ -165,7 +179,6 @@ public class MainViewController implements MouseListener{
         for (Mail mail : mails) {
             System.out.println(mail.getEmail() + " " + mail.getSubject());
             MailItem mailItem = new MailItem();
-//          completeNoteItemView.setBackground(cntrlMain.getThemeApp().getNOTE_BG());
             MailItemController mailitemController = new MailItemController(mailItem, mail);
             gridNotePanel.add(mailItem);
 
@@ -191,10 +204,19 @@ public class MainViewController implements MouseListener{
         FolderItemComponent inbox = new FolderItemComponent();
         System.out.println("Cargando folders");
 
-        inbox.getTxtFolderName().setText("INBOX");
-        inbox.getTxtFolderMessagesCounter().setText("69");
-        spam.getTxtFolderName().setText("JUNK");
-        spam.getTxtFolderMessagesCounter().setText("2");
+        inbox.getTxtFolderName().setText(INBOX_FOLDER);
+        loadMails(inbox.getTxtFolderName().getText());
+        inbox.getTxtFolderMessagesCounter().setText(Integer.toString(MessageFolder.getMails().size()));
+        
+        
+        if(LoginViewController.getProviderHost() == "smtp.gmail.com"){
+            spam.getTxtFolderName().setText("[Gmail]/Spam");
+        }else{
+            spam.getTxtFolderName().setText("JUNK");
+        }
+        loadMails(spam.getTxtFolderName().getText());
+        spam.getTxtFolderMessagesCounter().setText(Integer.toString(MessageFolder.getMails().size()));
+        
 
         FolderItemController folderInboxController = new FolderItemController(inbox);
         FolderItemController folderSpamController = new FolderItemController(spam);

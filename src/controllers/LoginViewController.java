@@ -17,9 +17,9 @@ import views.SMTPView;
 public class LoginViewController implements ActionListener, MouseListener{
     
     JsonWriter jsonwriter = new JsonWriter();
-
+    private static final String FILE_LOCATION = "src/utils/temp.txt";
     private LoginView loginView;
-    private String providerHost;
+    static private String providerHost;
     private final String providerPort = "587";
 
     public LoginViewController(LoginView loginView, String provider) {
@@ -37,12 +37,12 @@ public class LoginViewController implements ActionListener, MouseListener{
     private void setDefaultHost(String provider) {
         if (provider.equals("outlook")) {
             System.out.println("Seteando Outlook como proveedor de mails");
-            providerHost = "smtp-mail.outlook.com";
+            LoginViewController.providerHost = "smtp-mail.outlook.com";
         } else if (provider.equals("gmail")) {
             System.out.println("Seteando Gmail como proveedor de mails");
-            providerHost = "smtp.gmail.com";
+            LoginViewController.providerHost = "smtp.gmail.com";
         } else {
-            providerHost = "unknownHost";
+            LoginViewController.providerHost = "unknownHost";
         }
     }
 
@@ -53,15 +53,15 @@ public class LoginViewController implements ActionListener, MouseListener{
                 
         
         if (loginView.getbtnLogin().equals(e.getSource())) {
-            JSONObject temp = JsonReader.getJson("src/utils/temp.txt");
+            JSONObject temp = JsonReader.getJson(FILE_LOCATION);
             ValidatorSMTP validator = new ValidatorSMTP();
             if (validateFields()) {
 
                 temp.put("password", loginView.getpassfieldPassword().getText());
                 temp.put("email", loginView.gettxtEmail().getText());
-                temp.put("host", providerHost);
+                temp.put("host", LoginViewController.providerHost);
                 temp.put("port", providerPort);
-                jsonwriter.Write("src/utils/temp.txt", temp);
+                jsonwriter.write(FILE_LOCATION, temp);
                 if (validator.validate()) {
                     JOptionPane.showMessageDialog(null, "Login Correcto");
                     MainView mainview = new MainView();
@@ -74,7 +74,7 @@ public class LoginViewController implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Login Incorrecto");
                     temp.put("logged", false);
                 }
-                jsonwriter.Write("src/utils/temp.txt", temp);
+                jsonwriter.write(FILE_LOCATION, temp);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Ingresar todos los datos");
@@ -82,6 +82,11 @@ public class LoginViewController implements ActionListener, MouseListener{
 
         }
     }
+
+    public static String getProviderHost() {
+        return providerHost;
+    }
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {

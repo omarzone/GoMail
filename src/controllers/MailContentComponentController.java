@@ -26,7 +26,7 @@ import utils.HyperLinkRedirectListener;
  */
 public class MailContentComponentController implements ActionListener {
 
-    static private MailContentComponent mailContentView;
+    private static MailContentComponent mailContentView;
     private Mail mail;
 
     public MailContentComponentController(MailContentComponent mailContentView, Mail mail) {
@@ -86,7 +86,7 @@ public class MailContentComponentController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         if (MailContentComponentController.mailContentView.getBtnResponse().equals(e.getSource())) {
-            System.out.println("Hola");
+            
             NewMailComponent newMailComponent = new NewMailComponent();
             newMailComponent.getTxtSenderName().enable(false);
             newMailComponent.getTxtSubject().setText("RE: " + mail.getSubject());
