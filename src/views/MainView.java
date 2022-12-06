@@ -1,13 +1,20 @@
-
 package views;
-import javax.swing.text.*;
 
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.text.*;
 
 public class MainView extends javax.swing.JFrame {
 
-
     public MainView() {
+      
+
         initComponents();
+
     }
 
     /**
@@ -24,7 +31,9 @@ public class MainView extends javax.swing.JFrame {
         searchPanel = new javax.swing.JPanel();
         txtfSearch = new javax.swing.JTextField();
         refreshPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        reloadMailLabel = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        panelMailsBox = new javax.swing.JPanel();
         mailContent = new javax.swing.JPanel();
         optionPanel = new javax.swing.JPanel();
         btnSettings = new javax.swing.JPanel();
@@ -66,30 +75,29 @@ public class MainView extends javax.swing.JFrame {
         refreshPanel.setOpaque(false);
         refreshPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8-actualizar.png"))); // NOI18N
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        refreshPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
+        reloadMailLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        reloadMailLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/icons8-actualizar.png"))); // NOI18N
+        reloadMailLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        refreshPanel.add(reloadMailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 30));
 
         searchPanel.add(refreshPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 30, 30));
 
         mailContainer.add(searchPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 340, 40));
 
-        container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 402, 700));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("INBOX");
+        mailContainer.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        panelMailsBox.setOpaque(false);
+        panelMailsBox.setLayout(new java.awt.CardLayout());
+        mailContainer.add(panelMailsBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 380, 580));
+
+        container.add(mailContainer, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 400, 700));
 
         mailContent.setBackground(new java.awt.Color(248, 248, 255));
-
-        javax.swing.GroupLayout mailContentLayout = new javax.swing.GroupLayout(mailContent);
-        mailContent.setLayout(mailContentLayout);
-        mailContentLayout.setHorizontalGroup(
-            mailContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-        mailContentLayout.setVerticalGroup(
-            mailContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
-        );
-
+        mailContent.setAlignmentX(0.0F);
+        mailContent.setAlignmentY(0.0F);
+        mailContent.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 50, 0));
         container.add(mailContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 560, 700));
 
         optionPanel.setBackground(new java.awt.Color(56, 58, 110));
@@ -202,12 +210,8 @@ public class MainView extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            System.out.println("SOUTAP");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -227,6 +231,10 @@ public class MainView extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getReloadMailLabel() {
+        return reloadMailLabel;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnCreateMail;
     private javax.swing.JPanel btnFolders;
@@ -237,12 +245,163 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel mailContainer;
     private javax.swing.JPanel mailContent;
     private javax.swing.JPanel optionPanel;
+    private javax.swing.JPanel panelMailsBox;
     private javax.swing.JPanel refreshPanel;
+    private javax.swing.JLabel reloadMailLabel;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField txtfSearch;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getBtnCreateMail() {
+        return btnCreateMail;
+    }
+
+    public void setBtnCreateMail(JPanel btnCreateMail) {
+        this.btnCreateMail = btnCreateMail;
+    }
+
+    public JPanel getBtnFolders() {
+        return btnFolders;
+    }
+
+    public void setBtnFolders(JPanel btnFolders) {
+        this.btnFolders = btnFolders;
+    }
+
+    public JPanel getBtnSettings() {
+        return btnSettings;
+    }
+
+    public void setBtnSettings(JPanel btnSettings) {
+        this.btnSettings = btnSettings;
+    }
+
+    public JPanel getBtnUserProfile() {
+        return btnUserProfile;
+    }
+
+    public void setBtnUserProfile(JPanel btnUserProfile) {
+        this.btnUserProfile = btnUserProfile;
+    }
+
+    public JPanel getContainer() {
+        return container;
+    }
+
+    public void setContainer(JPanel container) {
+        this.container = container;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return reloadMailLabel;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.reloadMailLabel = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JPanel getPanelMailsBox() {
+        return panelMailsBox;
+    }
+
+    public void setPanelMailsBox(JPanel panelMailsBox) {
+        this.panelMailsBox = panelMailsBox;
+    }
+
+
+    public JPanel getMailContainer() {
+        return mailContainer;
+    }
+
+    public void setMailContainer(JPanel mailContainer) {
+        this.mailContainer = mailContainer;
+    }
+
+    public JPanel getMailContent() {
+        return mailContent;
+    }
+
+    public void setMailContent(JPanel mailContent) {
+        this.mailContent = mailContent;
+    }
+
+    public JPanel getOptionPanel() {
+        return optionPanel;
+    }
+
+    public void setOptionPanel(JPanel optionPanel) {
+        this.optionPanel = optionPanel;
+    }
+
+    public JPanel getRefreshPanel() {
+        return refreshPanel;
+    }
+
+    public void setRefreshPanel(JPanel refreshPanel) {
+        this.refreshPanel = refreshPanel;
+    }
+
+    public JPanel getSearchPanel() {
+        return searchPanel;
+    }
+
+    public void setSearchPanel(JPanel searchPanel) {
+        this.searchPanel = searchPanel;
+    }
+
+    public JTextField getTxtfSearch() {
+        return txtfSearch;
+    }
+
+    public void setTxtfSearch(JTextField txtfSearch) {
+        this.txtfSearch = txtfSearch;
+    }
+
+
+
+    
 }
