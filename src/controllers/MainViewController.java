@@ -1,5 +1,6 @@
 package controllers;
 
+import components.BackgroundImageComponent;
 import components.CustomScrollBar;
 import components.MailItem;
 import components.FolderItemComponent;
@@ -25,7 +26,7 @@ public class MainViewController implements MouseListener{
 
     static private MainView vistaPrincipal;
     private JSONObject temp;
-
+    private BackgroundImageComponent backgroundimage = new BackgroundImageComponent();
     public MainViewController(MainView vistaPrincipal) {
         MainViewController.vistaPrincipal = vistaPrincipal;
         temp = new JSONObject();
@@ -43,7 +44,8 @@ public class MainViewController implements MouseListener{
 
         MainViewController.vistaPrincipal.setVisible(true);
         MainViewController.vistaPrincipal.setLocationRelativeTo(null);
-
+        switchPanels(backgroundimage);
+        
         try {
             loadMails("INBOX");
         } catch (Exception e) {

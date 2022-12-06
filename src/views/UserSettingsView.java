@@ -1,6 +1,7 @@
 package views;
 import components.TextPrompt;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -31,7 +32,7 @@ public class UserSettingsView extends javax.swing.JFrame {
         btnDeleteData = new javax.swing.JButton();
         txtPort = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        btnReturn = new javax.swing.JButton();
+        labelBackButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(60, 62, 117));
@@ -79,9 +80,7 @@ public class UserSettingsView extends javax.swing.JFrame {
             }
         });
 
-        btnReturn.setBackground(new java.awt.Color(87, 89, 163));
-        btnReturn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnReturn.setText("Regresar");
+        labelBackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/back.png"))); // NOI18N
 
         javax.swing.GroupLayout panelColorBackgroundLayout = new javax.swing.GroupLayout(panelColorBackground);
         panelColorBackground.setLayout(panelColorBackgroundLayout);
@@ -89,23 +88,24 @@ public class UserSettingsView extends javax.swing.JFrame {
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
-                .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColorBackgroundLayout.createSequentialGroup()
-                        .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtHost)
-                            .addComponent(txtPort)
-                            .addComponent(txtEmail)
-                            .addComponent(btnDeleteData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(65, 65, 65))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelColorBackgroundLayout.createSequentialGroup()
-                        .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addGroup(panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtHost)
+                    .addComponent(txtPort)
+                    .addComponent(txtEmail)
+                    .addComponent(btnDeleteData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
+            .addGroup(panelColorBackgroundLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(labelBackButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelColorBackgroundLayout.setVerticalGroup(
             panelColorBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelColorBackgroundLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addGap(29, 29, 29)
+                .addComponent(labelBackButton)
+                .addGap(42, 42, 42)
                 .addComponent(jLabelLogo)
                 .addGap(50, 50, 50)
                 .addComponent(txtHost, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,9 +115,7 @@ public class UserSettingsView extends javax.swing.JFrame {
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(btnDeleteData, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,8 +189,8 @@ public class UserSettingsView extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteData;
-    private javax.swing.JButton btnReturn;
     private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel labelBackButton;
     private javax.swing.JLabel labelBackground;
     private javax.swing.JPanel panelColorBackground;
     private javax.swing.JTextField txtEmail;
@@ -232,12 +230,10 @@ public class UserSettingsView extends javax.swing.JFrame {
         this.txtPort = txtPort;
     }
 
-    public JButton getBtnReturn() {
-        return btnReturn;
+    public JLabel getLabelBackButton() {
+        return labelBackButton;
     }
 
-    public void setBtnReturn(JButton btnReturn) {
-        this.btnReturn = btnReturn;
-    }
+    
     
 }

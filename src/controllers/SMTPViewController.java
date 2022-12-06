@@ -44,6 +44,7 @@ public class SMTPViewController implements MouseListener{
 
         if(SMTPViewController.smtpview.getBtnPersonalized().equals(e.getSource())){       
             LoginSMTPView LoginSMTPViewOpen = new LoginSMTPView();
+            LoginSMTPViewController loginSMTPViewController = new LoginSMTPViewController(LoginSMTPViewOpen);
             LoginSMTPViewOpen.setLocationRelativeTo(null);
             SMTPViewController.smtpview.setVisible(false);
             LoginSMTPViewOpen.setVisible(true);

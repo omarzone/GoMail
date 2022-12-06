@@ -4,6 +4,7 @@
  */
 package components;
 
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,6 +24,10 @@ public class NewMailComponent extends javax.swing.JPanel {
      */
     public NewMailComponent() {
         initComponents();
+        Color miColor = new Color(255, 255, 255);
+        getjTextArea1().setBackground(miColor);
+        getTxtSenderName().setBackground(miColor);
+        getTxtSubject().setBackground(miColor);
     }
 
     /**
@@ -87,7 +92,6 @@ public class NewMailComponent extends javax.swing.JPanel {
         jLabel4.setText("Asunto:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
-        txtSenderName.setBackground(new java.awt.Color(255, 255, 255));
         txtSenderName.setForeground(new java.awt.Color(90, 91, 128));
         txtSenderName.setBorder(null);
         txtSenderName.setDisabledTextColor(new java.awt.Color(90, 91, 128));
@@ -101,7 +105,6 @@ public class NewMailComponent extends javax.swing.JPanel {
         });
         jPanel2.add(txtSenderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 440, 20));
 
-        txtSubject.setBackground(new java.awt.Color(255, 255, 255));
         txtSubject.setForeground(new java.awt.Color(90, 91, 128));
         txtSubject.setBorder(null);
         txtSubject.setDisabledTextColor(new java.awt.Color(90, 91, 128));
@@ -127,6 +130,7 @@ public class NewMailComponent extends javax.swing.JPanel {
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setForeground(new java.awt.Color(90, 91, 128));
         jTextArea1.setRows(5);
         jTextArea1.setBorder(null);
         jScrollPane2.setViewportView(jTextArea1);

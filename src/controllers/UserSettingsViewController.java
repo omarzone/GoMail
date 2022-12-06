@@ -6,6 +6,8 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
@@ -18,7 +20,7 @@ import views.UserSettingsView;
  *
  * @author PC GOOSE
  */
-public class UserSettingsViewController implements ActionListener{
+public class UserSettingsViewController implements ActionListener, MouseListener{
     private UserSettingsView userSettingsView;
     private JSONObject profileInfo;
 
@@ -27,6 +29,7 @@ public class UserSettingsViewController implements ActionListener{
         this.profileInfo = JsonReader.getJson("src/utils/temp.txt");
         this.initActions();
         this.setData();
+        userSettingsView.getLabelBackButton().addMouseListener(this);
         
         MainViewController.getMainView().setVisible(false);
         this.userSettingsView.setVisible(true);
@@ -51,16 +54,11 @@ public class UserSettingsViewController implements ActionListener{
             System.exit(0);
         }
         
-        if(this.userSettingsView.getBtnReturn().equals(e.getSource())){
-            MainViewController.getMainView().setVisible(true);
-            this.userSettingsView.setVisible(false);
-        }
         
     }
     
     private void initActions(){
         this.userSettingsView.getBtnDeleteData().addActionListener(this);
-        this.userSettingsView.getBtnReturn().addActionListener(this);
 
     }
    
@@ -71,6 +69,36 @@ public class UserSettingsViewController implements ActionListener{
         this.userSettingsView.getTxtEmail().enable(false);
         this.userSettingsView.getTxtPort().setText(String.valueOf(profileInfo.getInt("port")));
         this.userSettingsView.getTxtPort().enable(false);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(this.userSettingsView.getLabelBackButton().equals(e.getSource())){       
+            
+            this.userSettingsView.setVisible(false);
+            MainViewController.getMainView().setVisible(true);
+            MainViewController.getMainView().setAlwaysOnTop(true);
+    }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
    
