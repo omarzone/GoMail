@@ -58,8 +58,7 @@ public class Mail {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-//        System.out.println("Date: " + date.format(d));
-//        System.out.println("Time: " + time.format(d));
+       
 
     }
 

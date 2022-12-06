@@ -19,13 +19,10 @@ public class MailSender {
     private String mensajeDeTexto;
     private String contrasena16Digitos;
 
-//     public static void main(String[] args) {
-//       MailSender correo = new MailSender("demo231120@outlook.com", "fredyabisaimanzanero@gmail.com", "Rapidin", "Hola martin", "VivaPeru");
-//       correo.envioDeCorreos();
-//     }
+
     
     public MailSender(String origen, String destino, String asunto,
-            String txt, String contra16Digitos) {
+        String txt, String contra16Digitos) {
         this.correoDeOrigen = origen;
         this.correoDeDestino = destino;
         this.asunto = asunto;
@@ -66,11 +63,9 @@ public class MailSender {
             Store store = session.getStore("imaps");
 
 // Connect to store
-//            store.connect("outlook.office365.com", "demo231120@outlook.com", "VivaPeru");
             store.connect(host, email, password);
             t.sendMessage(mensaje, mensaje.getAllRecipients());
             t.close();
-//            session.getDebugOut();
             JOptionPane.showMessageDialog(null, "Mensaje enviado");
             return true;
         } catch (MessagingException e) {

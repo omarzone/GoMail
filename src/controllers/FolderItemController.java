@@ -20,7 +20,7 @@ import javax.mail.MessagingException;
 public class FolderItemController implements MouseListener {
 
     private FolderItemComponent folderItem;
-
+    
     public FolderItemController(FolderItemComponent folderItem) {
         this.folderItem = folderItem;
         folderItem.getComponentFolderItem().addMouseListener(this);
@@ -38,7 +38,7 @@ public class FolderItemController implements MouseListener {
                 MainViewController.getMainView().getPanelMailsBox().add(MainViewController.loadMails(folderItem.getTxtFolderName().getText()));
                 MainViewController.getMainView().getPanelMailsBox().repaint();
                 MainViewController.getMainView().getPanelMailsBox().revalidate();
-                MainViewController.getMainView().getjLabel6().setText(folderItem.getTxtFolderName().getText());
+                MainViewController.getMainView().getFolderNameTitle().setText(folderItem.getTxtFolderName().getText());
 
             } catch (MessagingException ex) {
                 Logger.getLogger(FolderItemController.class.getName()).log(Level.SEVERE, null, ex);
@@ -50,7 +50,7 @@ public class FolderItemController implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override

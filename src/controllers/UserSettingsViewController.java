@@ -49,7 +49,7 @@ public class UserSettingsViewController implements ActionListener, MouseListener
             profileInfo.put("port", "");
             profileInfo.put("password", "");
             profileInfo.put("logged", false);
-            jsonwriter.Write("src/utils/temp.txt", profileInfo);
+            jsonwriter.write("src/utils/temp.txt", profileInfo);
             JOptionPane.showMessageDialog(null, "Debe reiniciar la aplicación");
             System.exit(0);
         }

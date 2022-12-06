@@ -46,7 +46,7 @@ public class FolderItemComponent extends javax.swing.JPanel {
         txtFolderName.setText("INBOX");
         componentFolderItem.add(txtFolderName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
 
-        add(componentFolderItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 50));
+        add(componentFolderItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
     }// </editor-fold>//GEN-END:initComponents
 
 
